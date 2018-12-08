@@ -1,3 +1,18 @@
+/*
+Theme Name: Tinty
+Theme URI: https://wordpress.org/themes/tiny/
+Author: Kristoffer Lorentsen
+Author URI: https://lorut.no/
+Description: Tiny is a powerful theme that doesn't get in your way.
+Version: 2.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: tiny
+Tags: TODO one-column, two-columns, right-sidebar, flexible-header, accessibility-ready, custom-colors, custom-header, custom-menu, custom-logo, editor-style, featured-images, footer-widgets, post-formats, rtl-language-support, sticky-post, theme-options, threaded-comments, translation-ready
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+*/
+/* Variables */
 /* Vendor stuff */
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 /* Document
@@ -343,85 +358,44 @@ template {
 #content[tabindex="-1"]:focus {
   outline: 0; }
 
-/* =WordPress Core
- * https://codex.wordpress.org/CSS
- * https://digwp.com/2010/05/default-wordpress-css-styles-hooks/
--------------------------------------------------------------- */
+/**
+ * Alignment
+ *
+ * Aligning content in Gutenberg and Classic editor is done using classes. Need to 
+ * @link https://codex.wordpress.org/CSS
+ * @link https://digwp.com/2010/05/default-wordpress-css-styles-hooks/
+ * @link https://wordpress.org/gutenberg/handbook/designers-developers/developers/themes/theme-support/
+ *
+ **/
 .alignnone {
-  margin: 0; }
-
-.aligncenter,
-div.aligncenter {
-  display: block;
-  margin: 5px auto 5px auto; }
-
-.alignright {
-  float: right;
-  margin: 5px 0 20px 20px; }
+  clear: both;
+  display: block; }
 
 .alignleft {
   float: left;
-  margin: 5px 20px 20px 0; }
+  margin: 0.3em 1.3em 1.3em 0; }
 
-a img.alignright {
-  float: right;
-  margin: 5px 0 20px 20px; }
-
-a img.alignnone {
-  margin: 0; }
-
-a img.alignleft {
-  float: left;
-  margin: 5px 20px 20px 0; }
-
-a img.aligncenter {
+.aligncenter {
+  clear: both;
   display: block;
   margin-left: auto;
   margin-right: auto; }
 
-.wp-caption {
-  background: #fff;
-  border: 1px solid #f0f0f0;
-  max-width: 96%;
-  /* Image does not overflow the content area */
-  padding: 5px 3px 10px;
-  text-align: center; }
+.alignright {
+  float: right;
+  margin: 0.3em 0 1.3em 1.3em; }
 
-.wp-caption.alignnone {
-  margin: 0; }
-
-.wp-caption.alignleft {
-  margin: 5px 20px 20px 0; }
-
-.wp-caption.alignright {
-  margin: 5px 0 20px 20px; }
-
-.wp-caption img {
-  border: 0 none;
-  height: auto;
-  margin: 0;
-  max-width: 98.5%;
-  padding: 0;
-  width: auto; }
-
-.wp-caption p.wp-caption-text {
-  font-size: 11px;
-  line-height: 17px;
-  margin: 0;
-  padding: 0 4px 5px; }
-
-/* Gutenberg */
-.alignwide {
+.alignwide,
+.alignfull {
+  clear: both;
+  display: block;
   margin-left: -15px;
   margin-right: -15px; }
 
-.alignfull {
-  margin-left: -15px;
-  max-width: 100vw; }
-
 /* Structure */
 html {
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  font-size: 100%; }
 
 *, *:before, *:after {
   box-sizing: inherit; }
@@ -430,13 +404,22 @@ html {
   padding: 15px; }
 
 /* Content */
+figure {
+  margin: 0; }
+
+/* Image caption */
+.wp-caption {
+  text-align: center; }
+  .wp-caption .wp-caption-text {
+    font-size: 0.8em;
+    padding: 0.5em; }
+
 .hentry {
+  clear: both;
   font-family: sans-serif; }
   .hentry * {
     max-width: 100%;
     word-wrap: break-word; }
-  .hentry figure {
-    margin: 0; }
   .hentry pre {
     overflow-x: auto; }
   .hentry img {
@@ -444,6 +427,15 @@ html {
     max-width: 100%;
     position: relative; }
 
-/* Typo graphy*/
+/* Typography*/
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  clear: both;
+  margin-bottom: 0.5em;
+  margin-top: 0.5em; }
 
 /*# sourceMappingURL=style.css.map */
