@@ -17,3 +17,6 @@ wp-content/plugins/hello.php
 /sitemap.xml
 /sitemap.xml.gz
 
+# Docker stuff
+docker-compose.yml
+

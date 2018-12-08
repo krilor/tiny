@@ -1,0 +1,54 @@
+
+/* Vendor stuff */
+@import 'vendor/normalize.scss';
+@import 'vendor/accessibility.scss';
+@import 'vendor/core.scss';
+
+
+/* Structure */
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+.content-container {
+    padding: 15px;
+    //max-width: 780px;
+}
+
+
+
+
+/* Content */
+
+.hentry {
+    
+    font-family: sans-serif;
+    
+
+    * {
+        max-width: 100%;
+        word-wrap: break-word;
+    }
+
+    figure {
+        margin: 0;
+    }
+    
+    pre {
+        overflow-x: auto;
+    }
+    
+    img {
+        height: auto;
+        max-width: 100%;
+        position: relative;
+    }
+
+}
+
+/* Typo graphy*/ 
+
+

@@ -15,3 +15,13 @@ It should also harnest the power of WordPress core to the fullest.
 
 Let the mission commence!
 
+# Props
+
+Code inspiration has been taken from the beutiful twentynineteen theme.
+
+## Tiny history
+
+Tiny v1 was originally developed by [Marcel Wiessler](http://gaisterhand.de/). I am very grateful that he let me take over the name and continue on my tiny jurney.
+
+
+
