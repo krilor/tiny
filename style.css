@@ -1,5 +1,5 @@
 /*
-Theme Name: Tinty
+Theme Name: Tiny
 Theme URI: https://wordpress.org/themes/tiny/
 Author: Kristoffer Lorentsen
 Author URI: https://lorut.no/
@@ -390,7 +390,69 @@ template {
   clear: both;
   display: block;
   margin-left: -15px;
-  margin-right: -15px; }
+  margin-right: -15px;
+  max-width: 100vw; }
+
+.menu-top {
+  width: 100%; }
+  .menu-top ul {
+    margin: 0;
+    padding: 0; }
+  .menu-top li {
+    text-align: center;
+    width: 100%;
+    background-color: #fff; }
+    .menu-top li.current_page_item {
+      font-weight: 600; }
+  .menu-top li li {
+    background-color: #eee; }
+  .menu-top li li li {
+    background-color: #ddd; }
+  .menu-top a {
+    color: #000;
+    display: block;
+    padding: 1em 0;
+    text-decoration: none; }
+    .menu-top a:hover {
+      font-weight: 600; }
+
+.js .menu-top {
+  display: none;
+  visibility: hidden; }
+
+.js .menu-top.active {
+  display: block;
+  visibility: visible; }
+
+.nav-toggle-button {
+  background-color: transparent;
+  border: none;
+  border-top: 4px solid #000;
+  border-bottom: 4px solid #000;
+  display: block;
+  text-transform: uppercase;
+  outline: 0;
+  margin: 0.5rem auto;
+  padding: 0 3em;
+  font-size: 0.8em; }
+
+#site-logo {
+  display: block;
+  float: left; }
+  #site-logo img {
+    margin: 0 15px; }
+
+#site-title,
+.single .entry-header h1,
+.page .entry-header h1 {
+  clear: none;
+  margin: 0; }
+
+.home #content {
+  clear: both; }
+
+header p {
+  margin-top: 0; }
 
 /* Structure */
 html {
@@ -400,11 +462,26 @@ html {
 *, *:before, *:after {
   box-sizing: inherit; }
 
+body {
+  background-color: #ffffff; }
+
 .content-container {
-  padding: 15px; }
+  max-width: 760px; }
+
+.group:after {
+  content: "";
+  display: table;
+  clear: both; }
+
+article.hentry {
+  margin-bottom: 15px;
+  padding: 0 15px; }
 
 /* Content */
-figure {
+img, figure {
+  height: auto;
+  max-width: 100%;
+  position: relative;
   margin: 0; }
 
 /* Image caption */
@@ -414,20 +491,14 @@ figure {
     font-size: 0.8em;
     padding: 0.5em; }
 
-.hentry {
-  clear: both;
-  font-family: sans-serif; }
-  .hentry * {
-    max-width: 100%;
-    word-wrap: break-word; }
-  .hentry pre {
-    overflow-x: auto; }
-  .hentry img {
-    height: auto;
-    max-width: 100%;
-    position: relative; }
+pre {
+  overflow-x: auto; }
 
 /* Typography*/
+* {
+  font-family: sans-serif;
+  word-wrap: break-word; }
+
 h1,
 h2,
 h3,
@@ -435,7 +506,10 @@ h4,
 h5,
 h6 {
   clear: both;
-  margin-bottom: 0.5em;
-  margin-top: 0.5em; }
+  margin-bottom: 1em;
+  margin-top: 1em; }
+
+table {
+  margin-bottom: 1em; }
 
 /*# sourceMappingURL=style.css.map */

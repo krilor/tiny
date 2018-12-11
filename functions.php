@@ -4,6 +4,9 @@ function tiny_theme_scripts() {
     // Main style
     wp_enqueue_style( 'tiny-style', get_stylesheet_uri(), array(), wp_get_theme()->get( 'Version' ) );
 
+    // Main js
+    wp_enqueue_script( 'tiny-js', get_template_directory_uri() . '/js/tiny.js', array(), wp_get_theme()->get( 'Version' ) , true);
+
     // TODO print style
     //wp_enqueue_style( 'tiny-print-style', get_template_directory_uri() . '/print.css', array(), wp_get_theme()->get( 'Version' ), 'print' );
 
@@ -12,6 +15,15 @@ function tiny_theme_scripts() {
     }
 }
 add_action( 'wp_enqueue_scripts', 'tiny_theme_scripts' );
+
+/**
+ * JavaScript detection - js class in html element
+ * from
+ */
+function tiny_js_detector() {
+	echo "<script>(function(html){html.className = html.className.replace(/\bno-js\b/,'js')})(document.documentElement);</script>\n";
+}
+add_action( 'wp_head', 'tiny_js_detector', 0 );
 
 // Theme defaults and support for various WordPress features.
 function tiny_setup() {
@@ -42,7 +54,7 @@ function tiny_setup() {
         'caption',
     ) );
 
-    // WP code custom background
+    // WP code custom background - registered in sass as well
     add_theme_support( 'custom-background', apply_filters( 'tiny_custom_background_args', array(
         'default-color' => 'ffffff',
         'default-image' => '',
@@ -57,7 +69,7 @@ function tiny_setup() {
         'width'       => 250,
         'flex-width'  => true,
         'flex-height' => true,
-        'header-text' => array( 'header-text' ),
+        //'header-text' => array( 'header-text' ),
     ) ) );
 
     // Core block visual styles. Gutenberg
@@ -89,10 +101,47 @@ function tiny_setup() {
             'color' => '#444',
         ),
     ) ) );
+
+    // Custom font sizes
+    add_theme_support( 'editor-font-sizes', apply_filters( 'tiny_editor_font_sizes', array(
+        array(
+            'name' => __( 'small', 'themeLangDomain' ),
+            'shortName' => __( 'S', 'themeLangDomain' ),
+            'size' => 12,
+            'slug' => 'small'
+        ),
+        array(
+            'name' => __( 'regular', 'themeLangDomain' ),
+            'shortName' => __( 'M', 'themeLangDomain' ),
+            'size' => 16,
+            'slug' => 'regular'
+        ),
+        array(
+            'name' => __( 'large', 'themeLangDomain' ),
+            'shortName' => __( 'L', 'themeLangDomain' ),
+            'size' => 36,
+            'slug' => 'large'
+        ),
+        array(
+            'name' => __( 'larger', 'themeLangDomain' ),
+            'shortName' => __( 'XL', 'themeLangDomain' ),
+            'size' => 50,
+            'slug' => 'larger'
+        )
+    ) ) );
     
     // Add support for responsive embeds.
     add_theme_support( 'responsive-embeds' );
-}
 
+    // Breadcrumbs https://kb.yoast.com/kb/add-theme-support-for-yoast-seo-breadcrumbs/
+    add_theme_support( 'yoast-seo-breadcrumbs' );
+}
 add_action( 'after_setup_theme', 'tiny_setup' );
+
+// Display breadcrumbs - used in templates
+function tiny_breadcrumbs() {
+    if ( function_exists('yoast_breadcrumb') ) {
+        yoast_breadcrumb( '<p id="breadcrumbs">','</p>' );
+    }
+}
 ?>

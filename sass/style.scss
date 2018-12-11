@@ -1,5 +1,5 @@
 /*
-Theme Name: Tinty
+Theme Name: Tiny
 Theme URI: https://wordpress.org/themes/tiny/
 Author: Kristoffer Lorentsen
 Author URI: https://lorut.no/
@@ -23,6 +23,8 @@ $space-half: $space / 2;
 @import 'vendor/normalize.scss';
 @import 'vendor/accessibility.scss';
 @import 'modules/alignment.scss';
+@import 'modules/menu.scss';
+@import 'modules/header.scss';
 
 
 
@@ -39,18 +41,37 @@ html {
     box-sizing: inherit;
 }
 
-.content-container {
-    padding: 15px;
-    //max-width: 780px;
+body {
+    background-color: #ffffff; // same as registered in  add_theme_support( 'custom-background' )
 }
 
+.content-container {
+    max-width: 760px;    
+}
+
+// clearfix - https://css-tricks.com/snippets/css/clear-fix/
+.group:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+article.hentry {
+    margin-bottom: 15px;
+    padding: 0 15px;
+}
 
 
 
 /* Content */
-figure {
+
+img, figure {
+    height: auto;
+    max-width: 100%;
+    position: relative;
     margin: 0;
 }
+
 
 /* Image caption */
 .wp-caption {
@@ -61,32 +82,16 @@ figure {
     }
 }
 
-.hentry {
-    
-    clear: both;
-    font-family: sans-serif;
-    
-
-    * {
-        max-width: 100%;
-        word-wrap: break-word;
-    }
-
-
-    
-    pre {
-        overflow-x: auto;
-    }
-    
-    img {
-        height: auto;
-        max-width: 100%;
-        position: relative;
-    }
-
+pre {
+    overflow-x: auto;
 }
 
 /* Typography*/ 
+
+* {
+    font-family: sans-serif;
+    word-wrap: break-word;
+}
 
 h1,
 h2,
@@ -95,6 +100,10 @@ h4,
 h5,
 h6 {
     clear: both;
-    margin-bottom: 0.5em;
-    margin-top: 0.5em;
+    margin-bottom: 1em;
+    margin-top: 1em;
+}
+
+table {
+    margin-bottom: 1em;
 }

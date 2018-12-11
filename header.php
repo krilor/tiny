@@ -7,7 +7,7 @@
 ?>
 
 <!doctype html>
-<html <?php language_attributes(); ?>>
+<html class="no-js" <?php language_attributes(); ?>>
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,34 +19,44 @@
 
     <a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'tiny' ); ?></a>
 
-    <header class="site-header">
+    <nav id="site-navigation" class="main-navigation">
+        <button id="primary-menu-toggle" class="nav-toggle-button"><?php _e('Menu', 'tiny'); ?></button>
         <?php
-        $logo = get_custom_logo();
+            wp_nav_menu( array(
+                'theme_location' => 'menu-top',
+                'menu_class'     => 'menu-top',
+                'menu_id'        => 'primary-menu',
+            ) );
+        ?>
+    </nav>
+
+    <header class="site-header">
+    
+        <?php
+        $logo = get_custom_logo(); // TODO display a default "logo" if custom logo is not there
         if ( $logo ) : ?>
             <div id="site-logo"><?php echo $logo; ?></div>
         <?php endif; ?>
 
-        <!-- TODO: If home then <p>? -->
-        <h1 id="site-title" class="header-text"><?php bloginfo( 'name' ); ?></h1>
+        
 
+        <?php
+        if ( is_home() ):
+            $description = get_bloginfo( 'description' );
+            $description = $description ? $description : __('Site titles are for weak people','tiny'); // TODO change dummy text
+            ?>
 
-        <?php $description = get_bloginfo( 'description', 'display' );
-        if ( $description || is_customize_preview() ) : // so that the edit button will allways show when using the customizer
-        ?>
             <p id="site-description" class="header-text">
                 <?php echo $description; ?>
             </p>
-        <?php endif; ?>
+            <h1 id="site-title" class="header-text"><?php bloginfo( 'name' ); ?></h1>
+
+        <?php elseif ( is_archive() ):
+            
+            tiny_breadcrumbs();
+            the_archive_title('<h1 id="site-title">','</h1>');
+
+         endif; // is_home ?>
+
+        
     </header>
-
-
-    <aside class="navigation">
-        <nav id="site-navigation" class="main-navigation">
-            <?php
-                wp_nav_menu( array(
-                    'theme_location' => 'menu-top',
-                    'menu_id'        => 'primary-menu',
-                ) );
-            ?>
-        </nav>
-    </aside>
