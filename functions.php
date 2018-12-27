@@ -146,16 +146,31 @@ function tiny_breadcrumbs() {
 }
 
 // Register sidebar
-function tiny_register_sidebar() {
-    register_sidebar( array(
-        'name'          => __( 'Main Sidebar', 'tiny' ),
-        'id'            => 'sidebar-1',
-        'description'   => __( 'Widgets in this area will be shown on all posts and pages.', 'textdomain' ),
+function tiny_register_sidebars() {
+    
+    $shared_args = array(
         'before_widget' => '<li id="%1$s" class="widget %2$s">',
         'after_widget'  => '</li>',
         'before_title'  => '<h2 class="widgettitle">',
         'after_title'   => '</h2>',
-    ) );
+    );
+    
+    
+    // Sidebar
+    register_sidebar( wp_parse_args( array(
+        'name'          => __( 'Main Sidebar', 'tiny' ),
+        'id'            => 'sidebar-1',
+        'description'   => __( 'Widgets in this area will be shown on all posts and pages.', 'tiny' ),
+        ), $shared_args )
+    );
+
+    //Footer
+    register_sidebars(3, wp_parse_args( array(
+        'name'          => __( 'Footer Area %d', 'tiny' ),
+        'id'            => 'footerarea',
+        'description'   => __( 'This area is shown as no %d in the footer area.', 'tiny' ),
+        ), $shared_args )
+    );
 }
-add_action( 'widgets_init', 'tiny_register_sidebar' );
+add_action( 'widgets_init', 'tiny_register_sidebars' );
 ?>
