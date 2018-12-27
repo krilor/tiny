@@ -1,23 +1,7 @@
 #site-logo {
     display: block;
-    float: left;
 
     img {
         margin: 0 15px;
     }
-}
-
-#site-title,
-.single .entry-header h1,
-.page .entry-header h1 {
-    clear: none;
-    margin: 0;
-}
-
-.home #content {
-    clear: both;
-}
-
-header p {
-    margin-top: 0;
 }

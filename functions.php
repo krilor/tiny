@@ -144,4 +144,18 @@ function tiny_breadcrumbs() {
         yoast_breadcrumb( '<p id="breadcrumbs">','</p>' );
     }
 }
+
+// Register sidebar
+function tiny_register_sidebar() {
+    register_sidebar( array(
+        'name'          => __( 'Main Sidebar', 'tiny' ),
+        'id'            => 'sidebar-1',
+        'description'   => __( 'Widgets in this area will be shown on all posts and pages.', 'textdomain' ),
+        'before_widget' => '<li id="%1$s" class="widget %2$s">',
+        'after_widget'  => '</li>',
+        'before_title'  => '<h2 class="widgettitle">',
+        'after_title'   => '</h2>',
+    ) );
+}
+add_action( 'widgets_init', 'tiny_register_sidebar' );
 ?>

@@ -25,6 +25,7 @@ $space-half: $space / 2;
 @import 'modules/alignment.scss';
 @import 'modules/menu.scss';
 @import 'modules/header.scss';
+@import 'modules/sidebar.scss';
 
 
 
@@ -46,6 +47,7 @@ body {
 }
 
 .content-container {
+    width: 100%;
     max-width: 760px;    
 }
 
@@ -56,11 +58,17 @@ body {
     clear: both;
 }
 
+
+.silo {
+    float: left;
+    padding: 1em 1em 0 0;
+}
+
+
 article.hentry {
     margin-bottom: 15px;
     padding: 0 15px;
 }
-
 
 
 /* Content */

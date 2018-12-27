@@ -394,42 +394,40 @@ template {
   max-width: 100vw; }
 
 .menu-top {
-  width: 100%; }
+  padding-right: 1em; }
   .menu-top ul {
-    margin: 0;
-    padding: 0; }
+    padding-left: 1em;
+    list-style-type: none; }
   .menu-top li {
-    text-align: center;
-    width: 100%;
     background-color: #fff; }
-    .menu-top li.current_page_item {
-      font-weight: 600; }
-  .menu-top li li {
-    background-color: #eee; }
-  .menu-top li li li {
-    background-color: #ddd; }
+    .menu-top li.current_page_item > a {
+      text-shadow: 1px 0 0 currentColor; }
+  .menu-top ul ul li {
+    padding-left: 1em;
+    border-left: 1px solid #000; }
   .menu-top a {
     color: #000;
-    display: block;
-    padding: 1em 0;
+    display: inline-block;
+    padding: 0.5em 0;
     text-decoration: none; }
     .menu-top a:hover {
-      font-weight: 600; }
+      text-shadow: 1px 0 0 currentColor; }
 
+/*
 .js .menu-top {
-  display: none;
-  visibility: hidden; }
+    display: none;
+    visibility: hidden;
+}
 
 .js .menu-top.active {
-  display: block;
-  visibility: visible; }
-
+    display: block;
+    visibility: visible;
+}*/
 .nav-toggle-button {
   background-color: transparent;
   border: none;
   border-top: 4px solid #000;
   border-bottom: 4px solid #000;
-  display: block;
   text-transform: uppercase;
   outline: 0;
   margin: 0.5rem auto;
@@ -437,22 +435,16 @@ template {
   font-size: 0.8em; }
 
 #site-logo {
-  display: block;
-  float: left; }
+  display: block; }
   #site-logo img {
     margin: 0 15px; }
 
-#site-title,
-.single .entry-header h1,
-.page .entry-header h1 {
-  clear: none;
-  margin: 0; }
-
-.home #content {
-  clear: both; }
-
-header p {
-  margin-top: 0; }
+.main-sidebar {
+  width: 100%;
+  max-width: 400px; }
+  .main-sidebar > ul {
+    list-style-type: none;
+    padding-left: 0.75rem; }
 
 /* Structure */
 html {
@@ -466,12 +458,17 @@ body {
   background-color: #ffffff; }
 
 .content-container {
+  width: 100%;
   max-width: 760px; }
 
 .group:after {
   content: "";
   display: table;
   clear: both; }
+
+.silo {
+  float: left;
+  padding: 1em 1em 0 0; }
 
 article.hentry {
   margin-bottom: 15px;

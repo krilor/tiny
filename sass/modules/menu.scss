@@ -1,43 +1,44 @@
 // the main menu
 .menu-top {
 
+    padding-right: 1em;
+
     ul {
-        margin: 0;
-        padding: 0;
+        //margin: 0;
+        padding-left: 1em;
+        list-style-type: none;
     }
-    width: 100%;
 
     li {
-        text-align: center;
-        width: 100%;
         background-color: #fff;
 
-        &.current_page_item {
-            font-weight: 600;
+        &.current_page_item > a {
+            text-shadow: 1px 0 0 currentColor;
         }
 
     }
 
-    li li {
-        background-color: #eee;
-    }
-
-    li li li {
-        background-color: #ddd;
+    ul ul {
+        
+        li {
+            padding-left: 1em;
+            border-left: 1px solid #000;
+        }
     }
 
     a {
         color: #000;
-        display: block;
-        padding: 1em 0;
+        display: inline-block;
+        padding: 0.5em 0;
         text-decoration: none;
 
         &:hover {
-            font-weight: 600;
+            text-shadow: 1px 0 0 currentColor;
         }
     }
 }
 
+/*
 .js .menu-top {
     display: none;
     visibility: hidden;
@@ -46,14 +47,13 @@
 .js .menu-top.active {
     display: block;
     visibility: visible;
-}
+}*/
 
 .nav-toggle-button { // flat
     background-color: transparent;
     border: none;
     border-top: 4px solid #000;
     border-bottom: 4px solid #000;
-    display: block;
     text-transform: uppercase;
     outline: 0;
     margin: 0.5rem auto;

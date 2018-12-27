@@ -8,7 +8,7 @@
 
 <?php get_header(); ?>
 
-    <section id="content" class="content-container">
+    <section id="content" class="content-container silo">
         <main id="main">
 
         <?php
@@ -81,5 +81,5 @@
 
         </main>
     </section>
-
+<?php get_sidebar(); ?>
 <?php get_footer(); ?>
