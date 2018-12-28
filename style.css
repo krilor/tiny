@@ -451,6 +451,13 @@ template {
   width: 100%;
   max-width: 33.3333%; }
 
+.comments-area ol.comment-list {
+  padding-left: 0; }
+  .comments-area ol.comment-list, .comments-area ol.comment-list ol.children {
+    list-style-type: none; }
+.comments-area .comment-body {
+  padding-bottom: 1em; }
+
 /* Structure */
 html {
   box-sizing: border-box;

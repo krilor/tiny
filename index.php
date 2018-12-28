@@ -96,7 +96,9 @@
             
             the_posts_pagination();
             
-            // TODO comments
+            
+            comments_template();
+
 
         } else {
             printf('<h1>%s</h1>',__('No content to display','tiny'));
