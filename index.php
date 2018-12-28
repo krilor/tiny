@@ -82,26 +82,29 @@
             <? }
             
             if ( is_single() ):
-                $prev_post_link = get_previous_post_link('<span class="post-link previous">%link</span>');
-                $next_post_link = get_next_post_link('<span class="post-link next">%link</span>');
+                $prev_post_link = get_previous_post_link('<span class="nav-previous">%link</span>');
+                $next_post_link = get_next_post_link('<span class="nav-next">%link</span>');
 
                 if ( $prev_post_link || $next_post_link ): ?>
-                <div class="post-links">
-                    <?php echo $prev_post_link; ?>    
-                    <?php echo $next_post_link; ?>
-                </div>
-                <?php endif;
+                    <nav class="post-navigation" role="navigation">
+                        <h1 class="screen-reader-text section-heading"><?php _e( 'Post navigation', 'tiny' ); ?></h1>
+                        <div>
+                            <?php echo $prev_post_link; ?>
+                            <?php echo $next_post_link; ?>
+                        </div>
+                    <nav>
+                <?php
+                endif;
 
             endif;
             
             the_posts_pagination();
-            
-            
+
             comments_template();
 
 
         } else {
-            printf('<h1>%s</h1>',__('No content to display','tiny'));
+            printf('<h1>%s</h1>', __('No content to display','tiny'));
         }
         ?>
 

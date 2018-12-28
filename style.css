@@ -451,11 +451,12 @@ template {
   width: 100%;
   max-width: 33.3333%; }
 
-.comments-area ol.comment-list {
+ol.comment-list {
   padding-left: 0; }
-  .comments-area ol.comment-list, .comments-area ol.comment-list ol.children {
+  ol.comment-list, ol.comment-list ol.children {
     list-style-type: none; }
-.comments-area .comment-body {
+
+.comment-body {
   padding-bottom: 1em; }
 
 /* Structure */
@@ -487,14 +488,15 @@ article.hentry {
   padding: 0 15px; }
 
 /* Pagination */
-.post-link.next {
-  float: right; }
-  .post-link.next:after {
-    content: "\00bb";
-    margin-left: 0.5em; }
-.post-link.previous:before {
+.nav-previous:before {
   content: "\00ab";
   margin-right: 0.5em; }
+
+.nav-next {
+  float: right; }
+  .nav-next:after {
+    content: "\00bb";
+    margin-left: 0.5em; }
 
 /* Content */
 img, figure {

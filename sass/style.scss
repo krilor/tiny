@@ -72,22 +72,18 @@ article.hentry {
 }
 
 /* Pagination */
+.nav-previous:before {
+    content: "\00ab";
+    margin-right: 0.5em;
+}
 
-.post-link {
-    &.next {
-        float: right;
+.nav-next {
+    float: right;
         &:after {
             content: "\00bb";
             margin-left: 0.5em;
-        }
-    }
-
-    &.previous:before {
-        content: "\00ab";
-        margin-right: 0.5em;
     }
 }
-
 
 /* Content */
 

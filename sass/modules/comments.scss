@@ -1,17 +1,23 @@
-.comments-area {
+ol.comment-list {
 
-    ol.comment-list {
+    padding-left: 0;
 
-        padding-left: 0;
+    &, ol.children {
+        list-style-type: none;
 
-        &, ol.children {
-            list-style-type: none;
+    }
+}
 
-        }
+.comment-body {
+    padding-bottom: 1em;
+}
+
+.comment-navigation {
+    .nav-previous a:before {
+
     }
 
-    .comment-body {
-        padding-bottom: 1em;
+    .nav-next a:after {
+        
     }
-
-} 
+}
