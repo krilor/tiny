@@ -1,0 +1,22 @@
+
+$space: 1.5rem !default;
+$space-half: $space / 2 !default;
+
+.widget-area {
+
+    & > ul {
+        list-style-type: none;
+        padding-left: $space-half;
+    }
+
+}
+
+.sidebar-container {
+    width: 100%;
+    max-width: 400px;
+}
+
+.footerarea-container {
+    width: 100%;
+    max-width: 33.3333%;
+}

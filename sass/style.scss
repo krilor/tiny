@@ -25,7 +25,7 @@ $space-half: $space / 2;
 @import 'modules/alignment.scss';
 @import 'modules/menu.scss';
 @import 'modules/header.scss';
-@import 'modules/sidebar.scss';
+@import 'modules/widgets.scss';
 
 
 
@@ -68,6 +68,23 @@ body {
 article.hentry {
     margin-bottom: 15px;
     padding: 0 15px;
+}
+
+/* Pagination */
+
+.post-link {
+    &.next {
+        float: right;
+        &:after {
+            content: "\00bb";
+            margin-left: 0.5em;
+        }
+    }
+
+    &.previous:before {
+        content: "\00ab";
+        margin-right: 0.5em;
+    }
 }
 
 

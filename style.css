@@ -439,12 +439,17 @@ template {
   #site-logo img {
     margin: 0 15px; }
 
-.main-sidebar {
+.widget-area > ul {
+  list-style-type: none;
+  padding-left: 0.75rem; }
+
+.sidebar-container {
   width: 100%;
   max-width: 400px; }
-  .main-sidebar > ul {
-    list-style-type: none;
-    padding-left: 0.75rem; }
+
+.footerarea-container {
+  width: 100%;
+  max-width: 33.3333%; }
 
 /* Structure */
 html {
@@ -473,6 +478,16 @@ body {
 article.hentry {
   margin-bottom: 15px;
   padding: 0 15px; }
+
+/* Pagination */
+.post-link.next {
+  float: right; }
+  .post-link.next:after {
+    content: "\00bb";
+    margin-left: 0.5em; }
+.post-link.previous:before {
+  content: "\00ab";
+  margin-right: 0.5em; }
 
 /* Content */
 img, figure {

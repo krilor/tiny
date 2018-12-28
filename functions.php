@@ -141,7 +141,7 @@ add_action( 'after_setup_theme', 'tiny_setup' );
 // Display breadcrumbs - used in templates
 function tiny_breadcrumbs() {
     if ( function_exists('yoast_breadcrumb') ) {
-        yoast_breadcrumb( '<p id="breadcrumbs">','</p>' );
+        yoast_breadcrumb( '<p id="breadcrumbs" class="yoast-breadcrumbs">','</p>' );
     }
 }
 
@@ -173,4 +173,11 @@ function tiny_register_sidebars() {
     );
 }
 add_action( 'widgets_init', 'tiny_register_sidebars' );
+
+// Check if there are any pagination links
+function tiny_is_paginated_post() {
+	global $multipage;
+	return 0 !== $multipage;
+}
+
 ?>

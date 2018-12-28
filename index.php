@@ -54,6 +54,12 @@
                     <div class="entry-content group">
                         <?php the_content(); ?>
                     </div>
+
+                    <?php if ( is_single() && tiny_is_paginated_post() ): // Do pagination withing same page for the <!--nextpage--> quicktag) ?>
+                        <div class="paginated-post-links">
+                            <?php wp_link_pages(); ?>
+                        </div>
+                    <?php endif; ?>
                     
                     <footer>
                         <?php edit_post_link(__('Edit','tiny')); ?>
@@ -61,17 +67,35 @@
                         <?php echo get_the_tag_list('<ul class="post-tags"><li>','</li><li>','</li></ul>'); ?>
                         <?php echo get_the_author(); ?>
                         <?php the_date(); echo ' - '; the_time(); ?>
+                        <?php edit_post_link(); ?>
                         
                         
                         <?php if ( get_the_modified_time() != get_the_time() ): // is modified ?>
                             <?php the_modified_date(); the_modified_time(); ?>
                         <?php endif; ?>
+
+
                     </footer>
+
+ 
                 </article>
             <? }
+            
+            if ( is_single() ):
+                $prev_post_link = get_previous_post_link('<span class="post-link previous">%link</span>');
+                $next_post_link = get_next_post_link('<span class="post-link next">%link</span>');
 
-            // TODO edit button
-            // TODO twentynineteen_the_posts_navigation();
+                if ( $prev_post_link || $next_post_link ): ?>
+                <div class="post-links">
+                    <?php echo $prev_post_link; ?>    
+                    <?php echo $next_post_link; ?>
+                </div>
+                <?php endif;
+
+            endif;
+            
+            the_posts_pagination();
+            
             // TODO comments
 
         } else {
