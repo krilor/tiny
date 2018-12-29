@@ -15,9 +15,11 @@ Use it to make something cool, have fun, and share what you've learned with othe
 
 
 /* Variables */
+// Space should only be used for spacing in the structure. For content margins and padding, use ems.
 $space: 1.5rem;
 $space-double: $space * 2;
 $space-half: $space / 2;
+$space-quarter: $space / 4;
 
 /* Vendor stuff */
 @import 'vendor/normalize.scss';
@@ -27,10 +29,6 @@ $space-half: $space / 2;
 @import 'modules/header.scss';
 @import 'modules/widgets.scss';
 @import 'modules/comments.scss';
-
-
-
-
 
 
 /* Structure */
@@ -62,13 +60,12 @@ body {
 
 .silo {
     float: left;
-    padding: 1em 1em 0 0;
+    padding: $space-half;
 }
 
 
 article.hentry {
-    margin-bottom: 15px;
-    padding: 0 15px;
+    margin-bottom: $space;
 }
 
 /* Pagination */

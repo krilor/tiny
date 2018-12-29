@@ -42,7 +42,7 @@ function tiny_setup() {
 
     // This theme uses wp_nav_menu() in one location.
     register_nav_menus( array(
-        'menu-top' => esc_html__( 'Primary', 'tiny' ),
+        'primary-menu' => esc_html__( 'Primary', 'tiny' ),
     ) );
     
     // HTML5 support

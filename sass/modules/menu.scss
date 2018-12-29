@@ -1,12 +1,21 @@
 // the main menu
-.menu-top {
 
-    padding-right: 1em;
+
+$space: 1.5rem !default;
+$space-half: $space / 2 !default;
+$space-quarter: $space / 4 !default;
+
+
+.menu {
+
 
     ul {
-        //margin: 0;
-        padding-left: 1em;
+        padding-left: 0.6em;
         list-style-type: none;
+    }
+
+    > ul {
+        padding-left: 0;
     }
 
     li {
@@ -21,7 +30,7 @@
     ul ul {
         
         li {
-            padding-left: 1em;
+            padding-left: 0.6em;
             border-left: 1px solid #000;
         }
     }
@@ -29,7 +38,7 @@
     a {
         color: #000;
         display: inline-block;
-        padding: 0.5em 0;
+        padding: 0.3em 0;
         text-decoration: none;
 
         &:hover {

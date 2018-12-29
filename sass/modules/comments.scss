@@ -1,3 +1,5 @@
+$space: 1.5rem !default;
+
 ol.comment-list {
 
     padding-left: 0;
@@ -9,15 +11,7 @@ ol.comment-list {
 }
 
 .comment-body {
-    padding-bottom: 1em;
+    padding-bottom: $space;
 }
 
-.comment-navigation {
-    .nav-previous a:before {
 
-    }
-
-    .nav-next a:after {
-        
-    }
-}

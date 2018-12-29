@@ -58,8 +58,8 @@
                 <button id="primary-menu-toggle" class="nav-toggle-button"><?php _e('Menu', 'tiny'); ?></button>
                 <?php
                     wp_nav_menu( array(
-                        'theme_location' => 'menu-top',
-                        'menu_class'     => 'menu-top',
+                        'theme_location' => 'primary-menu',
+                        'menu_class'     => 'menu',
                         'menu_id'        => 'primary-menu',
                     ) );
                 ?>
