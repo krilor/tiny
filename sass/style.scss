@@ -133,7 +133,6 @@ article.hentry {
 }
 
 /* Content */
-
 img, figure {
     height: auto;
     max-width: 100%;
@@ -141,6 +140,28 @@ img, figure {
     margin: 0;
 }
 
+.button, button {
+    background-color: $col-main;
+    border: 2px solid $col-main;
+    color: $white;
+    font-weight: 900;
+    line-height: 2em;
+    vertical-align: middle;
+    text-transform: uppercase;
+    outline: 0;
+    padding: 0 1em;
+    cursor: pointer;
+    
+    &:hover {
+        border-color: $white;
+    }
+    
+    &:active {
+        background-color: $white;
+        border-color: $white;
+        color: $col-main;
+    }
+}
 
 /* Image caption */
 .wp-caption {

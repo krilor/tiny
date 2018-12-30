@@ -52,7 +52,7 @@
             </div>
 
             <nav id="site-navigation" class="main-navigation">
-                <button id="primary-menu-toggle" class="nav-toggle-button"><?php _e('Menu', 'tiny'); ?></button>
+                <button id="primary-menu-toggle" class="nav-toggle button" tiny-toggle="primary-menu"><?php _e('Menu', 'tiny'); ?></button>
                 <?php
                     wp_nav_menu( array(
                         'theme_location' => 'primary-menu',

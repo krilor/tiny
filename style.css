@@ -420,28 +420,11 @@ template {
     text-shadow: 1px 0 0 #61210F;
     color: #61210F; }
 
-/* Nav toggle */
-.nav-toggle-button {
-  background-color: #61210F;
-  border: 2px solid #61210F;
-  color: #FFF;
-  font-weight: 900;
+.nav-toggle {
   display: none;
-  line-height: 2em;
-  vertical-align: middle;
-  text-transform: uppercase;
-  outline: 0;
-  padding: 0 1em;
-  cursor: pointer;
   position: absolute;
   top: 0.75rem;
   right: 0.75rem; }
-  .nav-toggle-button:hover {
-    border-color: #FFF; }
-  .nav-toggle-button:active {
-    background-color: #FFF;
-    border-color: #FFF;
-    color: #61210F; }
 
 @media screen and (max-width: 800px) {
   .js .primary-menu {
@@ -452,7 +435,7 @@ template {
     display: block;
     visibility: visible; }
 
-  .nav-toggle-button {
+  .nav-toggle {
     display: block; } }
 .widget-area > ul {
   list-style-type: none;
@@ -532,6 +515,24 @@ img, figure {
   max-width: 100%;
   position: relative;
   margin: 0; }
+
+.button, button {
+  background-color: #61210F;
+  border: 2px solid #61210F;
+  color: #FFF;
+  font-weight: 900;
+  line-height: 2em;
+  vertical-align: middle;
+  text-transform: uppercase;
+  outline: 0;
+  padding: 0 1em;
+  cursor: pointer; }
+  .button:hover, button:hover {
+    border-color: #FFF; }
+  .button:active, button:active {
+    background-color: #FFF;
+    border-color: #FFF;
+    color: #61210F; }
 
 /* Image caption */
 .wp-caption {
