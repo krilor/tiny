@@ -17,7 +17,8 @@ $space-half: $space / 2 !default;
     max-width: 400px;
 }
 
-.footerarea-container {
-    width: 100%;
-    max-width: 33.3333%;
+@include breakpoint(min-narrow){
+    .footerarea-container {
+        width: 33.3333%;
+    }
 }

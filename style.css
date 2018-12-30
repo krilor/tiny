@@ -446,10 +446,9 @@ template {
   width: 100%;
   max-width: 400px; }
 
-.footerarea-container {
-  width: 100%;
-  max-width: 33.3333%; }
-
+@media screen and (min-width: 800px) {
+  .footerarea-container {
+    width: 33.3333%; } }
 ol.comment-list {
   padding-left: 0; }
   ol.comment-list, ol.comment-list ol.children {
