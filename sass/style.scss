@@ -21,12 +21,47 @@ $space-double: $space * 2;
 $space-half: $space / 2;
 $space-quarter: $space / 4;
 
+/* Colors */
+$col-main: #61210F; // main is used for links and such. Should be pretty dark, as it is used vs white quite often
+
+$blackish: #222; // A bit softer black to make the feel of the site not as hard
+$white: #FFF;
+
+/**
+ * Breakpoints
+ * Only use two breakpoints to keep it simple
+ * Ref: http://screensiz.es/
+ */
+$narrow: 800px; // Smaller screens and phones fall below this
+$wide: 1200px; // Regular desktops and beyond - 1280 px is normal
+
+@mixin breakpoint($point) {
+    @if $point == max-narrow {
+        @media screen and ( max-width: $narrow ) { @content; }
+    }
+    @else if $point == min-narrow {
+        @media screen and ( min-width: $narrow ) { @content; }
+    }
+    @else if $point == between {
+        @media screen and ( min-width: $narrow ) and ( max-width: $wide ) { @content; }
+    }
+    @else if $point == max-wide {
+        @media screen and ( max-width: $wide ) { @content; }
+    }
+    @else if $point == min-wide {
+        @media screen and ( min-width: $wide ) { @content; }
+    }
+    @else {
+        @media screen { @content; }
+    }
+ }
+ 
+
 /* Vendor stuff */
 @import 'vendor/normalize.scss';
 @import 'vendor/accessibility.scss';
 @import 'modules/alignment.scss';
 @import 'modules/menu.scss';
-@import 'modules/header.scss';
 @import 'modules/widgets.scss';
 @import 'modules/comments.scss';
 
@@ -57,12 +92,27 @@ body {
     clear: both;
 }
 
-
 .silo {
     float: left;
     padding: $space-half;
+    position: relative;
+
+    @include breakpoint(max-narrow) {
+        width: 100%;
+    }
 }
 
+/* Header */
+#site-logo {
+    display: block;
+}
+
+#breadcrumbs {
+    padding: 0;
+    margin: 0;
+}
+
+/* Content structure */
 
 article.hentry {
     margin-bottom: $space;

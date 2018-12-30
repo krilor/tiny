@@ -1,11 +1,5 @@
 // the main menu
 
-
-$space: 1.5rem !default;
-$space-half: $space / 2 !default;
-$space-quarter: $space / 4 !default;
-
-
 .menu {
 
 
@@ -19,7 +13,7 @@ $space-quarter: $space / 4 !default;
     }
 
     li {
-        background-color: #fff;
+        background-color: $white;
 
         &.current_page_item > a {
             text-shadow: 1px 0 0 currentColor;
@@ -36,36 +30,60 @@ $space-quarter: $space / 4 !default;
     }
 
     a {
-        color: #000;
+        color: $blackish;
         display: inline-block;
         padding: 0.3em 0;
         text-decoration: none;
 
         &:hover {
-            text-shadow: 1px 0 0 currentColor;
+            text-shadow: 1px 0 0 $col-main;
+            color: $col-main;
         }
     }
 }
 
-/*
-.js .menu-top {
-    display: none;
-    visibility: hidden;
-}
 
-.js .menu-top.active {
-    display: block;
-    visibility: visible;
-}*/
+/* Nav toggle */
 
 .nav-toggle-button { // flat
-    background-color: transparent;
-    border: none;
-    border-top: 4px solid #000;
-    border-bottom: 4px solid #000;
+    background-color: $col-main;
+    border: 2px solid $col-main;
+    color: $white;
+    font-weight: 900;
+    display: none;
+    line-height: 2em;
+    vertical-align: middle;
     text-transform: uppercase;
     outline: 0;
-    margin: 0.5rem auto;
-    padding: 0 3em;
-    font-size: 0.8em;
+    padding: 0 1em;
+    cursor: pointer;
+    position: absolute;
+    top: $space-half;
+    right: $space-half; 
+    
+    &:hover {
+        border-color: $white;
+    }
+
+    &:active {
+        background-color: $white;
+        border-color: $white;
+        color: $col-main;
+    }
+}
+
+@include breakpoint(max-narrow) {
+    .js .primary-menu {
+        display: none;
+        visibility: hidden;
+    }
+    
+    .js .primary-menu.active {
+        display: block;
+        visibility: visible;
+    }
+
+    .nav-toggle-button {
+        display: block;
+    }
 }

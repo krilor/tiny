@@ -22,10 +22,9 @@
 
 
     <div class="main-container group">
-        <div class="silo">
-            
-            <header class="site-header group">
+        <header class="site-header silo">
         
+            <div class="site-branding group">
                 <?php
                 $logo = get_custom_logo(); // TODO display a default "logo" if custom logo is not there
                 if ( $logo ) : ?>
@@ -50,18 +49,17 @@
                 
 
                 endif; // is_home ?>
-
-                
-            </header>
+            </div>
 
             <nav id="site-navigation" class="main-navigation">
                 <button id="primary-menu-toggle" class="nav-toggle-button"><?php _e('Menu', 'tiny'); ?></button>
                 <?php
                     wp_nav_menu( array(
                         'theme_location' => 'primary-menu',
-                        'menu_class'     => 'menu',
+                        'menu_class'     => 'menu primary-menu',
                         'menu_id'        => 'primary-menu',
                     ) );
                 ?>
             </nav>
-        </div>
+
+        </header>

@@ -13,6 +13,12 @@ This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
 */
 /* Variables */
+/* Colors */
+/**
+ * Breakpoints
+ * Only use two breakpoints to keep it simple
+ * Ref: http://screensiz.es/
+ */
 /* Vendor stuff */
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 /* Document
@@ -399,47 +405,59 @@ template {
 .menu > ul {
   padding-left: 0; }
 .menu li {
-  background-color: #fff; }
+  background-color: #FFF; }
   .menu li.current_page_item > a {
     text-shadow: 1px 0 0 currentColor; }
 .menu ul ul li {
   padding-left: 0.6em;
   border-left: 1px solid #000; }
 .menu a {
-  color: #000;
+  color: #222;
   display: inline-block;
   padding: 0.3em 0;
   text-decoration: none; }
   .menu a:hover {
-    text-shadow: 1px 0 0 currentColor; }
+    text-shadow: 1px 0 0 #61210F;
+    color: #61210F; }
 
-/*
-.js .menu-top {
-    display: none;
-    visibility: hidden;
-}
-
-.js .menu-top.active {
-    display: block;
-    visibility: visible;
-}*/
+/* Nav toggle */
 .nav-toggle-button {
-  background-color: transparent;
-  border: none;
-  border-top: 4px solid #000;
-  border-bottom: 4px solid #000;
+  background-color: #61210F;
+  border: 2px solid #61210F;
+  color: #FFF;
+  font-weight: 900;
+  display: none;
+  line-height: 2em;
+  vertical-align: middle;
   text-transform: uppercase;
   outline: 0;
-  margin: 0.5rem auto;
-  padding: 0 3em;
-  font-size: 0.8em; }
+  padding: 0 1em;
+  cursor: pointer;
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem; }
+  .nav-toggle-button:hover {
+    border-color: #FFF; }
+  .nav-toggle-button:active {
+    background-color: #FFF;
+    border-color: #FFF;
+    color: #61210F; }
 
-#site-logo {
-  display: block; }
+@media screen and (max-width: 800px) {
+  .js .primary-menu {
+    display: none;
+    visibility: hidden; }
 
+  .js .primary-menu.active {
+    display: block;
+    visibility: visible; }
+
+  .nav-toggle-button {
+    display: block; } }
 .widget-area > ul {
   list-style-type: none;
-  padding-left: 0; }
+  padding: 0;
+  margin-top: 0; }
 
 .sidebar-container {
   width: 100%;
@@ -479,8 +497,21 @@ body {
 
 .silo {
   float: left;
-  padding: 0.75rem; }
+  padding: 0.75rem;
+  position: relative; }
+  @media screen and (max-width: 800px) {
+    .silo {
+      width: 100%; } }
 
+/* Header */
+#site-logo {
+  display: block; }
+
+#breadcrumbs {
+  padding: 0;
+  margin: 0; }
+
+/* Content structure */
 article.hentry {
   margin-bottom: 1.5rem; }
 
