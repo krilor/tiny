@@ -8,8 +8,7 @@
  *
  **/
 
- $space: 1.5rem !default;
- $space-half: $space / 2 !default;
+$space: 14px !default;
 
 // alignnone - Not inline with text
 .alignnone {
@@ -44,7 +43,7 @@
 .alignfull {
     clear: both;
     display: block;
-    margin-left: $space-half;
-    margin-right: $space-half;
+    margin-left: -$space;
+    margin-right: -$space;
     max-width: 100vw;
 }

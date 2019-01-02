@@ -1,0 +1,61 @@
+/* Variables */
+/* Colors */
+/* Fonts */
+/**
+ * Breakpoints
+ * Only use two breakpoints to keep it simple
+ * Ref: http://screensiz.es/
+ */
+.wp-block {
+  max-width: 700px;
+}
+
+.wp-block[data-align=wide] {
+  max-width: 728px;
+}
+
+.wp-block[data-align=full] {
+  max-width: 728px;
+}
+
+a {
+  color: #61210F;
+}
+
+* {
+  font-family: sans-serif;
+}
+
+.editor-post-title__input {
+  font-family: sans-serif;
+}
+
+.wp-block-button .wp-block-button__link {
+  background-color: #61210F;
+  border: 2px solid #61210F;
+  box-shadow: none;
+  border-radius: 0;
+  color: #FFF;
+  display: inline-block;
+  font-weight: 900;
+  line-height: 2em;
+  vertical-align: middle;
+  text-transform: uppercase;
+  text-decoration: none;
+  outline: 0;
+  padding: 0 1em;
+  cursor: pointer;
+}
+.wp-block-button .wp-block-button__link:hover {
+  border-color: #FFF;
+}
+.wp-block-button .wp-block-button__link:visited {
+  color: #FFF;
+}
+.wp-block-button .wp-block-button__link:active {
+  background-color: #FFF;
+  border-color: #61210F;
+  color: #61210F;
+}
+
+/*# sourceMappingURL=editor-style.css.map */

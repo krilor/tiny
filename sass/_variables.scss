@@ -1,0 +1,50 @@
+/* Variables */
+// Space should only be used for spacing in the structure.
+$space: 14px; // same as the gutenberg editor
+$space-double: $space * 2;
+$space-half: $space / 2;
+$space-quarter: $space / 4;
+$gutenmargin: 36px; // oft-used margin on gutenberg blocks
+
+/* Colors */
+// TODO - evalute https://codepen.io/hugobaeta/pen/grJjVp
+$col-main: #61210F; // main is used for links and such. Should be pretty dark, as it is used vs white quite often
+$col-main-light: #dfd2cf;
+
+$blackish: #222; // A bit softer black to make the feel of the site not as hard
+$white: #FFF;
+
+/* Fonts */
+$font-headings: sans-serif;
+$font-body: sans-serif;
+
+/**
+ * Breakpoints
+ * Only use two breakpoints to keep it simple
+ * Ref: http://screensiz.es/
+ */
+$narrow: 800px; // Smaller screens and phones fall below this breakpoint
+$wide: 1250px; // Regular desktops and beyond - 1280 px is normal. Leaving some pixels for browser border and scrollbar
+
+@mixin breakpoint($point) {
+    @if $point == max-narrow {
+        @media screen and ( max-width: $narrow ) { @content; }
+    }
+    @else if $point == min-narrow {
+        @media screen and ( min-width: $narrow ) { @content; }
+    }
+    @else if $point == between {
+        @media screen and ( min-width: $narrow ) and ( max-width: $wide ) { @content; }
+    }
+    @else if $point == max-wide {
+        @media screen and ( max-width: $wide ) { @content; }
+    }
+    @else if $point == min-wide {
+        @media screen and ( min-width: $wide ) { @content; }
+    }
+    @else {
+        @media screen { @content; }
+    }
+}
+
+$content-width: 700px;

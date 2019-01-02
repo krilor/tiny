@@ -75,6 +75,9 @@ function tiny_setup() {
     // Core block visual styles. Gutenberg
     add_theme_support( 'wp-block-styles' );
 
+    add_theme_support( 'editor-styles' );
+    //TODO add_theme_support( 'dark-editor-style' );
+
     // Full and wide align images.
     add_theme_support( 'align-wide' );
 
@@ -105,26 +108,26 @@ function tiny_setup() {
     // Custom font sizes
     add_theme_support( 'editor-font-sizes', apply_filters( 'tiny_editor_font_sizes', array(
         array(
-            'name' => __( 'small', 'themeLangDomain' ),
-            'shortName' => __( 'S', 'themeLangDomain' ),
+            'name' => __( 'small', 'tiny' ),
+            'shortName' => __( 'S', 'tiny' ),
             'size' => 12,
             'slug' => 'small'
         ),
         array(
-            'name' => __( 'regular', 'themeLangDomain' ),
-            'shortName' => __( 'M', 'themeLangDomain' ),
+            'name' => __( 'regular', 'tiny' ),
+            'shortName' => __( 'M', 'tiny' ),
             'size' => 16,
             'slug' => 'regular'
         ),
         array(
-            'name' => __( 'large', 'themeLangDomain' ),
-            'shortName' => __( 'L', 'themeLangDomain' ),
+            'name' => __( 'large', 'tiny' ),
+            'shortName' => __( 'L', 'tiny' ),
             'size' => 36,
             'slug' => 'large'
         ),
         array(
-            'name' => __( 'larger', 'themeLangDomain' ),
-            'shortName' => __( 'XL', 'themeLangDomain' ),
+            'name' => __( 'larger', 'tiny' ),
+            'shortName' => __( 'XL', 'tiny' ),
             'size' => 50,
             'slug' => 'larger'
         )
@@ -137,6 +140,12 @@ function tiny_setup() {
     add_theme_support( 'yoast-seo-breadcrumbs' );
 }
 add_action( 'after_setup_theme', 'tiny_setup' );
+
+// Register editor styles
+function tiny_add_editor_styles() {
+    add_editor_style();
+}
+add_action( 'admin_init', 'tiny_add_editor_styles' );
 
 // Display breadcrumbs - used in templates
 function tiny_breadcrumbs() {
@@ -179,5 +188,10 @@ function tiny_is_paginated_post() {
 	global $multipage;
 	return 0 !== $multipage;
 }
+
+if ( ! isset( $content_width ) ) {
+	$content_width = 700;
+}
+
 
 ?>

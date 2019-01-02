@@ -1,0 +1,30 @@
+@mixin button() {
+    background-color: $col-main;
+    border: 2px solid $col-main;
+    box-shadow: none;
+    border-radius: 0;
+    color: $white;
+    display: inline-block;
+    font-weight: 900;
+    line-height: 2em;
+    vertical-align: middle;
+    text-transform: uppercase;
+    text-decoration: none;
+    outline: 0;
+    padding: 0 1em;
+    cursor: pointer;
+
+    &:hover {
+        border-color: $white;
+    }
+
+    &:visited {
+        color: $white;
+    }
+    
+    &:active {
+        background-color: $white;
+        border-color: $col-main;
+        color: $col-main;
+    }
+}

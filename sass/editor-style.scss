@@ -1,0 +1,30 @@
+@import 'variables';
+@import 'mixins';
+
+.wp-block {
+    max-width: $content-width;
+}
+
+.wp-block[data-align="wide"] {
+    max-width: $content-width + 2 * $space;
+}
+
+.wp-block[data-align="full"] {
+    max-width: $content-width + 2 * $space;
+}
+
+a {
+    color: $col-main;
+}
+
+* {
+    font-family: sans-serif;
+}
+
+.editor-post-title__input {
+    font-family: $font-headings;
+}
+
+.wp-block-button .wp-block-button__link {
+    @include button();
+}

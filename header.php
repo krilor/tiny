@@ -29,26 +29,8 @@
                 $logo = get_custom_logo(); // TODO display a default "logo" if custom logo is not there
                 if ( $logo ) : ?>
                     <div id="site-logo"><?php echo $logo; ?></div>
-                <?php endif; 
+                <?php endif; ?>
 
-                if ( is_home() ):
-                    $description = get_bloginfo( 'description' );
-                    $description = $description ? $description : __('Site titles are for weak people','tiny'); // TODO change dummy text
-                ?>
-
-                    <p id="site-description" class="header-text">
-                        <?php echo $description; ?>
-                    </p>
-                    <h1 id="site-title" class="header-text"><?php bloginfo( 'name' ); ?></h1>
-
-                <?php elseif ( is_archive() ):
-                    
-                    tiny_breadcrumbs();
-                    the_archive_title('<h1 id="site-title">','</h1>');
-
-                
-
-                endif; // is_home ?>
             </div>
 
             <nav id="site-navigation" class="main-navigation">

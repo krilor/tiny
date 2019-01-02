@@ -35,19 +35,27 @@
         padding: 0.3em 0;
         text-decoration: none;
 
+        &:visited {
+            color: $blackish;
+        }
+        
         &:hover {
-            text-shadow: 1px 0 0 $col-main;
             color: $col-main;
+        }
+        
+        &:active {
+            color: $blackish;
         }
     }
 }
 
 
-.nav-toggle { // flat
+button.nav-toggle { // flat
     display: none;
     position: absolute;
-    top: $space-half;
-    right: $space-half;
+    top: $space;
+    right: $space;
+    z-index: 1000;
 }
 
 @include breakpoint(max-narrow) {
