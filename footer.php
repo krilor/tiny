@@ -8,7 +8,7 @@
 
 </div> <!-- main-container -->
 
-<footer class="group">
+<footer class="main-footer group">
     <?php
     for ( $i = 1; $i <= 3; $i++ ):
         

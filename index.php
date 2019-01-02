@@ -12,33 +12,33 @@
         <main id="main">
 
         <?php if ( is_home() ):
-                    $description = get_bloginfo( 'description' );
-                    $description = $description ? $description : __('Site titles are for weak people','tiny'); // TODO change dummy text
-                ?>
-                    <div class="archive-header">
-                        <p id="site-description" class="header-text">
-                            <?php echo $description; ?>
-                        </p>
-                        <h1 class="site-title header-text"><?php bloginfo( 'name' ); ?></h1>
-                    </div>
+            $description = get_bloginfo( 'description' );
+            $description = $description ? $description : __('This is a tiny webpage!','tiny'); // TODO change dummy text
+            ?>
+            <div class="archive-header">
+                <p id="site-description" class="header-text">
+                    <?php echo $description; ?>
+                </p>
+                <h1 class="main-title header-text"><?php bloginfo( 'name' ); ?></h1>
+            </div>
 
-                <?php elseif ( is_archive() ):
-                    echo '<div class="archive-header">';
-                    tiny_breadcrumbs();
-                    the_archive_title('<h1 class="site-title">','</h1>');
-                    echo '</div>';
-                
-                elseif ( is_search() ): ?>
+        <?php elseif ( is_archive() ):
+            echo '<div class="archive-header">';
+            tiny_breadcrumbs();
+            the_archive_title('<h1 class="main-title">','</h1>');
+            echo '</div>';
+        
+        elseif ( is_search() ): ?>
 
-                    <div class="archive-header">
-                    <?php tiny_breadcrumbs(); ?>
-                    <h1 class="site-title"><?php _e('Search','tiny');?></h1>
-                    </div>
-                    <div>
-                    <?php get_search_form( true ); ?>
-                    </div>
+            <div class="archive-header">
+            <?php tiny_breadcrumbs(); ?>
+            <h1 class="main-title"><?php _e('Search','tiny');?></h1>
+            </div>
+            <div>
+            <?php get_search_form( true ); ?>
+            </div>
 
-                <?php endif; // is_home ?>
+        <?php endif; // is_home ?>
 
         <?php
         if ( have_posts() ) {
@@ -49,22 +49,24 @@
                     
                     <header class="entry-header">
 
-                        <?php if ( ! ( is_home() || is_archive() || is_search() )):
+                        <?php if ( ! ( is_home() || is_archive() || is_search() || tiny_is_template_blank() )):
                             tiny_breadcrumbs();
                         endif;
 
                         if (get_post_type() === 'post'): ?>
                         <div class="author-info">
-                            <?php 
-                                the_date();
-                                _e(' by ','tiny');
-                                echo get_the_author();
+                            
+                                <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php the_date(); ?></a>
+                                <?php _e(' by ','tiny');
+                                the_author_link();
                             ?>
                         </div>
                         <?php endif;
 
                         if ( is_singular() ):
-                            the_title( '<h1 class="site-title post-title">', '</h1>' );
+                            if ( !tiny_is_template_blank() ): 
+                                the_title( '<h1 class="main-title post-title">', '</h1>' );
+                            endif;
                         else:
                             the_title( '<h2 class="post-title"><a href="' . esc_url(get_permalink()) . '">', '</a></h2>' );
                         endif; ?>
@@ -97,7 +99,17 @@
 
                     <?php if ( is_single() && tiny_is_paginated_post() ): // Do pagination withing same page for the <!--nextpage--> quicktag) ?>
                         <div class="paginated-post-links">
-                            <?php wp_link_pages(); ?>
+                            <span class="page-links-label"><?php _e('More pages in this post','tiny'); ?></span>
+                            <?php wp_link_pages( array(
+                                    'before'           => '<ul class="page-links num-'. $numpages  . '"><li class="page-link">',
+                                    'after'            => '</li></ul>',
+                                    'link_before'      => '<span>',
+                                    'link_after'       => '</span>',
+                                    'next_or_number'   => 'number',
+                                    'separator'        => '</li><li class="page-link">',
+                                    'pagelink'         => '%',
+                                    'echo'             => 1
+                            )); ?>
                         </div>
                     <?php endif; ?>
 
@@ -129,7 +141,7 @@
 
                     <?php endif; ?>
 
-                    <?php if ( is_sticky() ): // display a sticky sticker if sticky ?>
+                    <?php if ( is_sticky() && is_home() && ! is_paged() ): // display a sticky sticker if sticky ?>
                         <div class="sticker"><span><?php _e( 'Sticky', 'tiny'); ?></div>
                     <?php endif; ?>
 
@@ -142,19 +154,43 @@
                 $next_post_link = get_next_post_link('<span class="nav-next">%link</span>');
 
                 if ( $prev_post_link || $next_post_link ): ?>
-                    <nav class="post-navigation" role="navigation">
+                    <nav class="post-navigation group" role="navigation">
                         <h1 class="screen-reader-text section-heading"><?php _e( 'Post navigation', 'tiny' ); ?></h1>
                         <div>
-                            <?php echo $prev_post_link; ?>
-                            <?php echo $next_post_link; ?>
+                            <?php if ( $prev_post_link ): ?>
+                            <span class="wrap-previous">
+                                <span class="label-previous"><?php _e('Previous','tiny'); ?></span>
+                                <?php echo $prev_post_link; ?>
+                            </span>
+                            <?php endif; ?>
+                            
+                            <?php if ( $next_post_link ): ?>
+                            <span class="wrap-next">
+                                <span class="label-next"><?php _e('Next','tiny'); ?></span>
+                                <?php echo $next_post_link; ?>
+                            </span>
+                            <?php endif; ?>
                         </div>
-                    <nav>
+                    </nav>
                 <?php
                 endif;
 
             endif;
             
-            the_posts_pagination();
+            $posts_pagination = str_replace(    'screen-reader-text',
+                                                'pagination-label',
+                                                get_the_posts_pagination(
+                                                    array(
+                                                        'mid_size' => 30,
+                                                        'screen_reader_text' => __('More posts','tiny')
+                                                    ) 
+                                                )
+                                            );
+            if ( $posts_pagination ): ?>
+                <div class="posts-navigation">
+                    <?php echo $posts_pagination; ?>
+                </div>
+            <?php endif;
 
             comments_template();
 

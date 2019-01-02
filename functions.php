@@ -70,7 +70,7 @@ function tiny_setup() {
         'flex-width'  => true,
         'flex-height' => true,
         //'header-text' => array( 'header-text' ),
-    ) ) );
+ 7   ) ) );
 
     // Core block visual styles. Gutenberg
     add_theme_support( 'wp-block-styles' );
@@ -193,5 +193,11 @@ if ( ! isset( $content_width ) ) {
 	$content_width = 700;
 }
 
+function tiny_is_template_blank(){
+    if ( !is_singular() ){
+        return false;
+    }
+    return is_page_template( 'template-blank.php' );
+}
 
 ?>

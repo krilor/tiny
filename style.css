@@ -588,7 +588,7 @@ button.nav-toggle {
     visibility: visible;
   }
 
-  .nav-toggle {
+  button.nav-toggle {
     display: block;
   }
 }
@@ -693,10 +693,21 @@ body {
   }
 
   .content-container {
-    max-width: 700px;
+    width: 700px;
   }
 }
 /* Header */
+.site-title {
+  margin-top: 14px;
+}
+.site-title, .site-title:hover, .site-title:visited, .site-title:active {
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 1.67em;
+  letter-spacing: -0.05em;
+}
+
 #site-logo {
   display: block;
 }
@@ -718,12 +729,24 @@ body {
 }
 
 /* Footer */
+.main-footer {
+  max-width: 1250px;
+}
+
+.footerarea .widgettitle {
+  border-bottom: 1px solid #dfd2cf;
+}
+
 @media screen and (min-width: 800px) {
   .footerarea-container {
     width: 33.3333%;
   }
 }
 /* Content structure */
+.home .entry-content *:first-child {
+  margin-top: 0;
+}
+
 main article + article {
   margin-top: 72px;
 }
@@ -754,18 +777,134 @@ main article + article:before {
   padding: 0.3em 0.5em;
 }
 
-/* Pagination */
+/* Pagination and post links */
+.page-links-label {
+  text-transform: uppercase;
+  font-size: 0.8em;
+  font-weight: 700;
+  margin-bottom: 0.3em;
+}
+
+.page-links {
+  padding: 0;
+  margin: 0 0 14px 0;
+}
+.page-links .page-link {
+  display: inline-block;
+}
+.page-links .page-link + .page-link {
+  margin-left: 0.3em;
+}
+.page-links .page-link span {
+  padding: 0.3em 1em;
+  border: 1px solid #61210F;
+  display: inline-block;
+  font-weight: 700;
+}
+.page-links .page-link a {
+  background-color: #dfd2cf;
+  display: inline-block;
+}
+.page-links .page-link a:hover {
+  background-color: #FFF;
+}
+
+.post-navigation {
+  margin: 36px 0;
+}
+
+.posts-navigation {
+  margin: 36px 0;
+}
+.posts-navigation .pagination-label {
+  text-transform: uppercase;
+  font-size: 0.8em;
+  font-weight: 700;
+  margin-bottom: 0.3em;
+}
+.posts-navigation .nav-links {
+  text-align: center;
+}
+.posts-navigation .prev {
+  float: left;
+}
+.posts-navigation .prev:before {
+  content: "«";
+  width: 1em;
+  display: inline-block;
+}
+.posts-navigation .next {
+  float: right;
+}
+.posts-navigation .next:after {
+  content: "»";
+  width: 1em;
+  display: inline-block;
+}
+.posts-navigation .page-numbers:hover {
+  text-decoration: none;
+}
+.posts-navigation .page-numbers:not(.prev):not(.next) {
+  padding: 0 1em;
+}
+
+.wrap-previous,
+.wrap-next {
+  max-width: 50%;
+}
+
+.label-previous,
+.label-next {
+  text-transform: uppercase;
+  font-size: 0.8em;
+  font-weight: 700;
+  margin-bottom: 0.3em;
+}
+
+.nav-previous,
+.nav-next {
+  position: relative;
+}
+
+.label-previous,
+.nav-previous,
+.wrap-previous {
+  clear: left;
+  float: left;
+  text-align: left;
+}
+
+.nav-previous {
+  display: inline-block;
+  margin-left: 1em;
+}
 .nav-previous:before {
   content: "«";
-  margin-right: 0.5em;
+  display: block;
+  width: 1em;
+  position: absolute;
+  top: 0;
+  left: -1em;
+}
+
+.label-next,
+.nav-next,
+.wrap-next {
+  clear: right;
+  float: right;
+  text-align: right;
 }
 
 .nav-next {
-  float: right;
+  display: inline-block;
+  margin-right: 1em;
 }
 .nav-next:after {
   content: "»";
-  margin-left: 0.5em;
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  right: -1em;
 }
 
 /* Post meta */
@@ -786,12 +925,13 @@ main article + article:before {
 .post-categories, .post-tags {
   list-style-type: none;
   padding: 0;
-  margin: 0;
-  display: inline;
+  margin: 0 0 0 1em;
+  display: inline-block;
 }
 .post-categories:before, .post-tags:before {
   display: inline-block;
   width: 1em;
+  margin-left: -1em;
 }
 .post-categories li + li:before, .post-tags li + li:before {
   content: ", ";
@@ -816,10 +956,6 @@ main article + article:before {
 }
 
 /* Content */
-.site-title {
-  margin-top: 14px;
-}
-
 .post-title {
   margin-top: 0;
 }
@@ -828,6 +964,23 @@ main article + article:before {
   font-size: 0.8em;
   text-transform: uppercase;
   font-weight: 700;
+}
+.author-info a,
+.author-info a:visited,
+.author-info a:active {
+  text-decoration: none;
+}
+.author-info a:hover {
+  text-decoration: underline;
+}
+
+.single .author-info {
+  margin-top: 1em;
+}
+
+.post-edit-link {
+  margin: 0 0 1em 0;
+  display: inline-block;
 }
 
 .post-thumbnail {
@@ -929,6 +1082,10 @@ article p {
 article dd,
 article li {
   margin-bottom: 6px;
+}
+article .wp-block-spacer {
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 h1,

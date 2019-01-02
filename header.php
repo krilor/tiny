@@ -28,7 +28,9 @@
                 <?php
                 $logo = get_custom_logo(); // TODO display a default "logo" if custom logo is not there
                 if ( $logo ) : ?>
-                    <div id="site-logo"><?php echo $logo; ?></div>
+                    <div id="site-logo-container"><?php echo $logo; ?></div>
+                <?php else: ?>
+                    <div id="site-title-container"><a class="site-title" href="<?php echo site_url(); ?>"><?php bloginfo( 'name' ); ?></a></div>
                 <?php endif; ?>
 
             </div>

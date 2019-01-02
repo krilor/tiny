@@ -67,15 +67,25 @@ body {
     }
     
     .content-container {
-        max-width: $content-width;    
+        width: $content-width;    
     }
 
 }
 
 
 /* Header */
-.site-header {
-    // TODO
+.site-title {
+    margin-top: $space;
+    &,
+    &:hover,
+    &:visited,
+    &:active {
+        text-decoration: none;
+        text-transform: uppercase;
+        font-weight: 700;
+        font-size: 1.67em;
+        letter-spacing: -0.05em;
+    }
 }
 
 #site-logo {
@@ -104,6 +114,14 @@ body {
 
 /* Footer */
 
+.main-footer {
+    max-width: $wide;
+}
+
+.footerarea .widgettitle {
+    border-bottom: 1px solid $col-main-light;
+}
+
 @include breakpoint(min-narrow){
     .footerarea-container {
         width: 33.3333%;
@@ -111,6 +129,11 @@ body {
 }
 
 /* Content structure */
+
+.home .entry-content *:first-child {
+    margin-top: 0;
+}
+
 
 main article + article {
     margin-top: $gutenmargin * 2;
@@ -148,17 +171,152 @@ main article + article {
     }
 }
 
-/* Pagination */
-.nav-previous:before {
-    content: "\00ab";
-    margin-right: 0.5em;
+/* Pagination and post links */
+.page-links-label {
+    text-transform: uppercase;
+    font-size: 0.8em;
+    font-weight: 700;
+    margin-bottom: 0.3em;
+}
+.page-links {
+
+    padding: 0;
+    margin: 0 0 $space 0;
+
+    .page-link {
+        display: inline-block;
+
+        + .page-link {
+            margin-left: 0.3em;
+        }
+
+        span {
+            padding: 0.3em 1em;
+            border: 1px solid $col-main;
+            display: inline-block;
+            font-weight: 700;
+        }
+
+        a { 
+            background-color: $col-main-light;
+            display: inline-block;
+
+            &:hover {
+                background-color: $white;
+            }
+        }
+    }
 }
 
-.nav-next {
-    float: right;
+.post-navigation {
+    margin: $gutenmargin 0;
+}
+
+.posts-navigation {
+    margin: $gutenmargin 0;
+
+    .pagination-label {
+        text-transform: uppercase;
+        font-size: 0.8em;
+        font-weight: 700;
+        margin-bottom: 0.3em;
+    }
+
+    .nav-links {
+        text-align: center;
+    }
+
+    .prev {
+        float: left;
+
+        &:before {
+            content: "\00ab";
+            width: 1em;
+            display: inline-block;
+        }
+
+    }
+
+    .next {
+        float: right;
+
         &:after {
             content: "\00bb";
-            margin-left: 0.5em;
+            width: 1em;
+            display: inline-block;
+        }
+    }
+
+    .page-numbers {
+
+        &:hover {
+            text-decoration: none;
+        }
+
+        &:not(.prev):not(.next) {
+            padding: 0 1em;
+       }
+    }
+
+}
+
+.wrap-previous,
+.wrap-next {
+    max-width: 50%;
+}
+
+.label-previous,
+.label-next {
+    text-transform: uppercase;
+    font-size: 0.8em;
+    font-weight: 700;
+    margin-bottom: 0.3em;
+}
+
+.nav-previous,
+.nav-next {
+    position: relative;
+}
+
+.label-previous,
+.nav-previous,
+.wrap-previous {
+    clear: left;
+    float: left;
+    text-align: left;
+}
+
+.nav-previous {
+    display: inline-block;
+    margin-left: 1em;
+    
+    &:before {
+        content: "\00ab";
+        display: block;
+        width: 1em;
+        position: absolute;
+        top: 0;
+        left: -1em;
+    }
+}
+
+.label-next,
+.nav-next,
+.wrap-next {
+    clear: right;
+    float: right;
+    text-align: right;
+}
+.nav-next {
+    display: inline-block;
+    margin-right: 1em;
+
+    &:after {
+            content: "\00bb";
+            display: inline-block;
+            position: absolute;
+            top: 0;
+            right: -1em;
     }
 }
 
@@ -181,12 +339,13 @@ main article + article {
     
     list-style-type: none;
     padding: 0;
-    margin: 0;
-    display: inline;
+    margin: 0 0 0 1em;
+    display: inline-block;
 
     &:before {
         display: inline-block;
-        width: 1em;    
+        width: 1em;
+        margin-left: -1em; 
     }
 
     li + li:before {
@@ -217,11 +376,13 @@ main article + article {
 }
 
 /* Content */
-.site-title {
-    margin-top: $space;
+
+
+.main-title { // main title on archive an such
+
 }
 
-.post-title {
+.post-title { // individual post title
     margin-top: 0;
 }
 
@@ -229,6 +390,24 @@ main article + article {
     font-size: 0.8em;
     text-transform: uppercase;
     font-weight: 700;
+
+    a,
+    a:visited,
+    a:active {
+        text-decoration: none;
+    }
+    a:hover {
+        text-decoration: underline;
+    }
+}
+
+.single .author-info {
+    margin-top: 1em;
+}
+
+.post-edit-link {
+    margin: 0 0 1em 0;
+    display: inline-block;
 }
 
 .post-thumbnail {
@@ -304,6 +483,11 @@ article {
     dd,
     li {
         margin-bottom: 6px;
+    }
+
+    .wp-block-spacer {
+        margin-top: 0;
+        margin-bottom: 0;
     }
 
 }
