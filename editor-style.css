@@ -35,7 +35,7 @@ a {
   border: 2px solid #61210F;
   box-shadow: none;
   border-radius: 0;
-  color: #FFF;
+  color: #D2E2E2;
   display: inline-block;
   font-weight: 900;
   line-height: 2em;
@@ -47,13 +47,13 @@ a {
   cursor: pointer;
 }
 .wp-block-button .wp-block-button__link:hover {
-  border-color: #FFF;
+  border-color: #D2E2E2;
 }
 .wp-block-button .wp-block-button__link:visited {
-  color: #FFF;
+  color: #D2E2E2;
 }
 .wp-block-button .wp-block-button__link:active {
-  background-color: #FFF;
+  background-color: #D2E2E2;
   border-color: #61210F;
   color: #61210F;
 }

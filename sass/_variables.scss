@@ -7,16 +7,33 @@ $space-quarter: $space / 4;
 $gutenmargin: 36px; // oft-used margin on gutenberg blocks
 
 /* Colors */
+
+// Theme support colors
+$editor-color-palette: (
+    strong-blue: #0073aa,
+    lighter-blue: #229fd8
+);
+
+
 // TODO - evalute https://codepen.io/hugobaeta/pen/grJjVp
 $col-main: #61210F; // main is used for links and such. Should be pretty dark, as it is used vs white quite often
 $col-main-light: #dfd2cf;
+//$col-sec: 
+//$col-sec-light:
 
-$blackish: #222; // A bit softer black to make the feel of the site not as hard
-$white: #FFF;
+$blackish: #191e23; // A bit softer black to make the feel of the site not as hard
+$whiteish: #fdfdfd;
 
 /* Fonts */
 $font-headings: sans-serif;
 $font-body: sans-serif;
+
+$editor-font-sizes: (
+    small: 12px,
+    regular: 16px,
+    large: 35px,
+    larger: 50px
+);
 
 /**
  * Breakpoints

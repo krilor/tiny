@@ -3,7 +3,7 @@
     border: 2px solid $col-main;
     box-shadow: none;
     border-radius: 0;
-    color: $white;
+    color: $whiteish;
     display: inline-block;
     font-weight: 900;
     line-height: 2em;
@@ -15,15 +15,15 @@
     cursor: pointer;
 
     &:hover {
-        border-color: $white;
+        border-color: $whiteish;
     }
 
     &:visited {
-        color: $white;
+        color: $whiteish;
     }
     
     &:active {
-        background-color: $white;
+        background-color: $whiteish;
         border-color: $col-main;
         color: $col-main;
     }

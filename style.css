@@ -544,7 +544,7 @@ template {
   padding-left: 0;
 }
 .menu li {
-  background-color: #FFF;
+  background-color: #fdfdfd;
 }
 .menu li.current_page_item > a {
   text-shadow: 1px 0 0 currentColor;
@@ -554,19 +554,19 @@ template {
   border-left: 1px solid #000;
 }
 .menu a {
-  color: #222;
+  color: #191e23;
   display: inline-block;
   padding: 0.3em 0;
   text-decoration: none;
 }
 .menu a:visited {
-  color: #222;
+  color: #191e23;
 }
 .menu a:hover {
   color: #61210F;
 }
 .menu a:active {
-  color: #222;
+  color: #191e23;
 }
 
 button.nav-toggle {
@@ -629,7 +629,7 @@ ol.comment-list ol.children {
   border: 2px solid #61210F;
   box-shadow: none;
   border-radius: 0;
-  color: #FFF;
+  color: #fdfdfd;
   display: inline-block;
   font-weight: 900;
   line-height: 2em;
@@ -641,13 +641,13 @@ ol.comment-list ol.children {
   cursor: pointer;
 }
 .comment-body .comment-reply-link:hover {
-  border-color: #FFF;
+  border-color: #fdfdfd;
 }
 .comment-body .comment-reply-link:visited {
-  color: #FFF;
+  color: #fdfdfd;
 }
 .comment-body .comment-reply-link:active {
-  background-color: #FFF;
+  background-color: #fdfdfd;
   border-color: #61210F;
   color: #61210F;
 }
@@ -656,7 +656,7 @@ ol.comment-list ol.children {
   background-color: #dfd2cf;
 }
 
-/* Structure */
+/* Structure and basics */
 html {
   box-sizing: border-box;
   font-size: 100%;
@@ -667,7 +667,24 @@ html {
 }
 
 body {
-  background-color: #ffffff;
+  background-color: #fdfdfd;
+  color: #191e23;
+}
+
+.has-strong-blue-background-color {
+  background-color: #0073aa;
+}
+
+.has-strong-blue-color {
+  color: #0073aa;
+}
+
+.has-lighter-blue-background-color {
+  background-color: #229fd8;
+}
+
+.has-lighter-blue-color {
+  color: #229fd8;
 }
 
 .group:after {
@@ -753,7 +770,7 @@ main article + article {
 main article + article:before {
   display: block;
   content: "";
-  border-top: 1px solid #222;
+  border-top: 1px solid #191e23;
   position: relative;
   top: -36px;
   margin: 0 30%;
@@ -773,7 +790,7 @@ main article + article:before {
   top: 0;
   right: 0;
   background-color: #61210F;
-  color: #FFF;
+  color: #fdfdfd;
   padding: 0.3em 0.5em;
 }
 
@@ -806,7 +823,7 @@ main article + article:before {
   display: inline-block;
 }
 .page-links .page-link a:hover {
-  background-color: #FFF;
+  background-color: #fdfdfd;
 }
 
 .post-navigation {
@@ -952,7 +969,7 @@ main article + article:before {
   text-decoration: underline;
 }
 .post-categories li a:active, .post-tags li a:active {
-  color: #222;
+  color: #191e23;
 }
 
 /* Content */
@@ -1003,7 +1020,7 @@ input[type=submit],
   border: 2px solid #61210F;
   box-shadow: none;
   border-radius: 0;
-  color: #FFF;
+  color: #fdfdfd;
   display: inline-block;
   font-weight: 900;
   line-height: 2em;
@@ -1018,19 +1035,19 @@ input[type=submit],
 button:hover,
 input[type=submit]:hover,
 .wp-block-button .wp-block-button__link:hover {
-  border-color: #FFF;
+  border-color: #fdfdfd;
 }
 .button:visited,
 button:visited,
 input[type=submit]:visited,
 .wp-block-button .wp-block-button__link:visited {
-  color: #FFF;
+  color: #fdfdfd;
 }
 .button:active,
 button:active,
 input[type=submit]:active,
 .wp-block-button .wp-block-button__link:active {
-  background-color: #FFF;
+  background-color: #fdfdfd;
   border-color: #61210F;
   color: #61210F;
 }
@@ -1088,6 +1105,22 @@ article .wp-block-spacer {
   margin-bottom: 0;
 }
 
+.has-small-font-size {
+  font-size: 12px;
+}
+
+.has-regular-font-size {
+  font-size: 16px;
+}
+
+.has-large-font-size {
+  font-size: 35px;
+}
+
+.has-larger-font-size {
+  font-size: 50px;
+}
+
 h1,
 h2,
 h3,
@@ -1138,7 +1171,7 @@ a {
 }
 
 a:active {
-  color: #222;
+  color: #191e23;
 }
 
 a:visited {
@@ -1149,7 +1182,7 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
   text-decoration: none;
 }
 h1 a, h1 a:visited, h2 a, h2 a:visited, h3 a, h3 a:visited, h4 a, h4 a:visited, h5 a, h5 a:visited, h6 a, h6 a:visited {
-  color: #222;
+  color: #191e23;
 }
 h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover {
   color: #61210F;

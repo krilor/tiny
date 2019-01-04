@@ -27,7 +27,7 @@ Use it to make something cool, have fun, and share what you've learned with othe
 @import 'modules/comments.scss';
 
 
-/* Structure */
+/* Structure and basics */
 html {
     box-sizing: border-box;
     font-size: 100%; // Not really neccessary, but nice to have. Equates to 16 px.
@@ -38,10 +38,18 @@ html {
 }
 
 body {
-    background-color: #ffffff; // same as registered in  add_theme_support( 'custom-background' )
+    background-color: $whiteish; // same as registered in  add_theme_support( 'custom-background' )
+    color: $blackish;
 }
 
-
+@each $slug, $color in $editor-color-palette {
+    .has-#{$slug}-background-color {
+        background-color: $color;
+    }
+    .has-#{$slug}-color {
+        color: $color;
+    }
+}
 
 // clearfix - https://css-tricks.com/snippets/css/clear-fix/
 .group:after {
@@ -166,7 +174,7 @@ main article + article {
         top: 0;
         right: 0;
         background-color: $col-main;
-        color: $white;
+        color: $whiteish;
         padding: 0.3em 0.5em;
     }
 }
@@ -202,7 +210,7 @@ main article + article {
             display: inline-block;
 
             &:hover {
-                background-color: $white;
+                background-color: $whiteish;
             }
         }
     }
@@ -490,6 +498,13 @@ article {
         margin-bottom: 0;
     }
 
+}
+
+// Theme customs sizes
+@each $slug, $size in $editor-font-sizes {
+    .has-#{$slug}-font-size {
+        font-size: $size;
+    }
 }
 
 
