@@ -19,7 +19,7 @@
 }
 
 a {
-  color: #61210F;
+  color: #F15025;
 }
 
 * {
@@ -31,11 +31,11 @@ a {
 }
 
 .wp-block-button .wp-block-button__link {
-  background-color: #61210F;
-  border: 2px solid #61210F;
+  background-color: #F15025;
+  border: 2px solid #F15025;
   box-shadow: none;
   border-radius: 0;
-  color: #D2E2E2;
+  color: #FFF;
   display: inline-block;
   font-weight: 900;
   line-height: 2em;
@@ -47,15 +47,15 @@ a {
   cursor: pointer;
 }
 .wp-block-button .wp-block-button__link:hover {
-  border-color: #D2E2E2;
+  border-color: #FFF;
 }
 .wp-block-button .wp-block-button__link:visited {
-  color: #D2E2E2;
+  color: #FFF;
 }
 .wp-block-button .wp-block-button__link:active {
-  background-color: #D2E2E2;
-  border-color: #61210F;
-  color: #61210F;
+  background-color: #FFF;
+  border-color: #F15025;
+  color: #F15025;
 }
 
 /*# sourceMappingURL=editor-style.css.map */

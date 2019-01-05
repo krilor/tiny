@@ -18,13 +18,14 @@ Use it to make something cool, have fun, and share what you've learned with othe
 @import 'mixins';
 
 /* Vendor stuff */
-@import 'vendor/normalize.scss';
-@import 'vendor/accessibility.scss'; 
-@import 'vendor/galleries.scss';
+@import 'vendor/normalize';
+@import 'vendor/accessibility'; 
+@import 'vendor/galleries';
 
-@import 'modules/alignment.scss';
-@import 'modules/menu.scss';
-@import 'modules/comments.scss';
+/* Modules */
+@import 'modules/alignment';
+@import 'modules/menu';
+@import 'modules/comments';
 
 
 /* Structure and basics */
