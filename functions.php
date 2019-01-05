@@ -177,7 +177,7 @@ function tiny_register_sidebars() {
 }
 add_action( 'widgets_init', 'tiny_register_sidebars' );
 
-// Check if there are any pagination links
+// Check if there are any pagination links in a single post
 function tiny_is_paginated_post() {
 	global $multipage;
 	return 0 !== $multipage;

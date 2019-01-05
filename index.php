@@ -102,9 +102,12 @@
                         <?php edit_post_link(__('Edit','tiny')); ?>
                     </div>
 
-                    <?php if ( is_single() && tiny_is_paginated_post() ): // Do pagination withing same page for the <!--nextpage--> quicktag) ?>
-                        <div class="paginated-post-links">
-                            <span class="page-links-label"><?php _e('More pages in this post','tiny'); ?></span>
+
+                    <?php 
+                    // Pagination of a single paginated post (  <!--nextpage--> )
+                    if ( is_single() && tiny_is_paginated_post() ): ?>
+                        <nav class="paginated-post-navigation">
+                            <span class="page-links-label tiny-label"><?php _e('More pages in this post','tiny'); ?></span>
                             <?php wp_link_pages( array(
                                     'before'           => '<ul class="page-links num-'. $numpages  . '"><li class="page-link">',
                                     'after'            => '</li></ul>',
@@ -115,11 +118,11 @@
                                     'pagelink'         => '%',
                                     'echo'             => 1
                             )); ?>
-                        </div>
+                        </nav>
                     <?php endif; ?>
 
-                    <?php
 
+                    <?php
                     $category_list = preg_replace('/(\>)\s*(\<)/m', '$1$2', get_the_category_list() ); // replace whitespace to ensure render alignment in Chrome
                     $tag_list = get_the_tag_list('<ul class="post-tags"><li>','</li><li>','</li></ul>');
 
@@ -153,10 +156,11 @@
  
                 </article>
             <?php }
-            
+
+            // Pagination between single posts
             if ( is_single() ):
-                $prev_post_link = get_previous_post_link('<span class="nav-previous">%link</span>');
-                $next_post_link = get_next_post_link('<span class="nav-next">%link</span>');
+                $prev_post_link = get_previous_post_link('<span class="prev">%link</span>');
+                $next_post_link = get_next_post_link('<span class="next">%link</span>');
 
                 if ( $prev_post_link || $next_post_link ): ?>
                     <nav class="post-navigation group" role="navigation">
@@ -164,14 +168,14 @@
                         <div>
                             <?php if ( $prev_post_link ): ?>
                             <span class="wrap-previous">
-                                <span class="label-previous"><?php _e('Previous','tiny'); ?></span>
+                                <span class="label-previous tiny-label"><?php _e('Previous','tiny'); ?></span>
                                 <?php echo $prev_post_link; ?>
                             </span>
                             <?php endif; ?>
                             
                             <?php if ( $next_post_link ): ?>
                             <span class="wrap-next">
-                                <span class="label-next"><?php _e('Next','tiny'); ?></span>
+                                <span class="label-next tiny-label"><?php _e('Next','tiny'); ?></span>
                                 <?php echo $next_post_link; ?>
                             </span>
                             <?php endif; ?>
@@ -182,8 +186,9 @@
 
             endif;
             
+            // Pagination of post lists 
             $posts_pagination = str_replace(    'screen-reader-text',
-                                                'pagination-label',
+                                                'posts-pagination-label tiny-label',
                                                 get_the_posts_pagination(
                                                     array(
                                                         'mid_size' => 30,
@@ -192,9 +197,9 @@
                                                 )
                                             );
             if ( $posts_pagination ): ?>
-                <div class="posts-navigation">
+                <nav class="posts-navigation">
                     <?php echo $posts_pagination; ?>
-                </div>
+                </nav>
             <?php endif;
 
             comments_template();

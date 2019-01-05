@@ -81,6 +81,14 @@ body {
 
 }
 
+/* Utility classes */
+.tiny-label {
+    text-transform: uppercase;
+    font-size: 0.8em;
+    font-weight: 700;
+    margin-bottom: 0.3em;
+}
+
 
 /* Header */
 .site-title {
@@ -186,12 +194,8 @@ main article + article {
 }
 
 /* Pagination and post links */
-.page-links-label {
-    text-transform: uppercase;
-    font-size: 0.8em;
-    font-weight: 700;
-    margin-bottom: 0.3em;
-}
+
+// Multi-page posts - paginated-post-navigation
 .page-links {
 
     padding: 0;
@@ -222,43 +226,62 @@ main article + article {
     }
 }
 
-.post-navigation {
-    margin: $gutenmargin 0;
+// Shares prev and next links
+.prev,
+.next {
+    display: block;
+    position: relative;
 }
 
+.prev {
+    float: left;
+    clear: left;
+    margin-left: 1em;
+    text-align: left;
+
+    &:hover:before {
+        color: $blackish;
+    }
+
+    &:before {
+        color: $blackish;
+        content: "\00ab";
+        width: 1em;
+        display: block;
+        position: absolute;
+        top: 0;
+        left: -1em;
+    }
+
+}
+
+.next {
+    clear: right;
+    float: right;
+    margin-right: 1em;
+    text-align: right;
+
+    &:hover:after {
+        color: $blackish;
+    }
+
+    &:after {
+        color: $blackish;
+        content: "\00bb";
+        width: 1em;
+        display: block;
+        position: absolute;
+        top: 0;
+        right: -1em;
+    }
+}
+
+// Pagination of archive-like pages
 .posts-navigation {
     margin: $gutenmargin 0;
 
-    .pagination-label {
-        text-transform: uppercase;
-        font-size: 0.8em;
-        font-weight: 700;
-        margin-bottom: 0.3em;
-    }
-
     .nav-links {
         text-align: center;
-    }
-
-    .prev {
-        float: left;
-
-        &:before {
-            content: "\00ab";
-            width: 1em;
-            display: inline-block;
-        }
-
-    }
-
-    .next {
-        float: right;
-
-        &:after {
-            content: "\00bb";
-            width: 1em;
-            display: inline-block;
-        }
     }
 
     .page-numbers {
@@ -274,64 +297,29 @@ main article + article {
 
 }
 
+// Single post navigation
+.post-navigation {
+    margin: $gutenmargin 0;
+}
+
 .wrap-previous,
 .wrap-next {
     max-width: 50%;
 }
 
 .label-previous,
-.label-next {
-    text-transform: uppercase;
-    font-size: 0.8em;
-    font-weight: 700;
-    margin-bottom: 0.3em;
-}
-
-.nav-previous,
-.nav-next {
-    position: relative;
-}
-
-.label-previous,
-.nav-previous,
 .wrap-previous {
     clear: left;
     float: left;
     text-align: left;
 }
 
-.nav-previous {
-    display: inline-block;
-    margin-left: 1em;
-    
-    &:before {
-        content: "\00ab";
-        display: block;
-        width: 1em;
-        position: absolute;
-        top: 0;
-        left: -1em;
-    }
-}
 
 .label-next,
-.nav-next,
 .wrap-next {
     clear: right;
     float: right;
     text-align: right;
-}
-.nav-next {
-    display: inline-block;
-    margin-right: 1em;
-
-    &:after {
-            content: "\00bb";
-            display: inline-block;
-            position: absolute;
-            top: 0;
-            right: -1em;
-    }
 }
 
 /* Post meta */
