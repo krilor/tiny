@@ -84,25 +84,20 @@ function tiny_setup() {
     // Custom color scheme.
     add_theme_support( 'editor-color-palette', apply_filters( 'tiny_editor_color_palette', array(
         array(
-            'name'  => __( 'Strong Blue', 'tiny' ),
-            'slug'  => 'strong-blue',
-            'color' => '#0073aa',
+            'name'  => __( 'Flame', 'tiny' ),
+            'slug'  => 'flame',
+            'color' => '#F15025',
         ),
         array(
-            'name'  => __( 'Lighter Blue', 'tiny' ),
-            'slug'  => 'lighter-blue',
-            'color' => '#229fd8',
+            'name'  => __( 'Flame Light', 'tiny' ),
+            'slug'  => 'flame-light',
+            'color' => '#FFE6D7',
         ),
         array(
-            'name'  => __( 'Very Light Gray', 'tiny' ),
-            'slug'  => 'very-light-gray',
-            'color' => '#eee',
-        ),
-        array(
-            'name'  => __( 'Very Dark Gray', 'tiny' ),
-            'slug'  => 'very-dark-gray',
-            'color' => '#444',
-        ),
+            'name'  => __( 'Easy blue', 'tiny' ),
+            'slug'  => 'easy-blue',
+            'color' => '#11648D',
+        )
     ) ) );
 
     // Custom font sizes

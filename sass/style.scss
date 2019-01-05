@@ -84,10 +84,15 @@ body {
 /* Header */
 .site-title {
     margin-top: $space;
+
+    &:hover {
+        color: $blackish;
+    }
+
     &,
-    &:hover,
     &:visited,
     &:active {
+        text-shadow: 1px 1px 0px $whiteish, 3px 3px 0px $col-main;
         text-decoration: none;
         text-transform: uppercase;
         font-weight: 700;
@@ -556,7 +561,12 @@ h4 {
 }
 
 // anchor - links
-a {
+a,
+a:visited {
+    color: $col-sec;
+}
+
+a:hover {
     color: $col-main;
 }
 
@@ -564,9 +574,6 @@ a:active {
     color: $blackish;
 }
 
-a:visited {
-    color: $col-main;
-}
 
 h1,h2,h3,h4,h5,h6 {
     a {

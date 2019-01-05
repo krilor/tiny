@@ -7,22 +7,30 @@ $space-quarter: $space / 4;
 $gutenmargin: 36px; // oft-used margin on gutenberg blocks
 
 /* Colors */
+// coolors.co/f15025-ffffff-e6e8e6-ced0ce-191919
+$flame: #F15025;
+$platinum: #e6e8e6;
+$pastel-grey: #ced0ce;
+
+$whiteish: #FFF;
+$blackish: #191919;
+
+// https://mycolor.space/?hex=%23F15025&sub=1
+$flame-light: #FFE6D7;
+$easy-blue: #11648D;
 
 // Theme support colors
 $editor-color-palette: (
-    strong-blue: #0073aa,
-    lighter-blue: #229fd8
+    flame: $flame,
+    flame-light: $flame-light,
+    easy-blue: $easy-blue
 );
 
 
-// TODO - evalute https://codepen.io/hugobaeta/pen/grJjVp
-$col-main: #61210F; // main is used for links and such. Should be pretty dark, as it is used vs white quite often
-$col-main-light: #dfd2cf;
-//$col-sec: 
-//$col-sec-light:
+$col-main: $flame; // main is used for links and such. Should be pretty dark, as it is used vs white quite often
+$col-main-light: $flame-light;
+$col-sec: $easy-blue;
 
-$blackish: #191e23; // A bit softer black to make the feel of the site not as hard
-$whiteish: #fdfdfd;
 
 /* Fonts */
 $font-headings: sans-serif;
