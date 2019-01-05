@@ -424,9 +424,6 @@ template {
   vertical-align: top;
   width: 100%;
 }
-.gallery-item img {
-  width: 100%;
-}
 .gallery-columns-2 .gallery-item {
   max-width: calc((100% - 14px * 1) / 2);
 }

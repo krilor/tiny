@@ -13,7 +13,7 @@
 
         <?php if ( is_home() ):
             $description = get_bloginfo( 'description' );
-            $description = $description ? $description : __('This is a tiny webpage!','tiny'); // TODO change dummy text
+            $description = $description ? $description : __('This is a tiny webpage!','tiny');
             ?>
             <div class="archive-header">
                 <p id="site-description" class="header-text">

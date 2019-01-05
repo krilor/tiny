@@ -7,9 +7,6 @@ function tiny_theme_scripts() {
     // Main js
     wp_enqueue_script( 'tiny-js', get_template_directory_uri() . '/js/tiny.js', array(), wp_get_theme()->get( 'Version' ) , true);
 
-    // TODO print style
-    //wp_enqueue_style( 'tiny-print-style', get_template_directory_uri() . '/print.css', array(), wp_get_theme()->get( 'Version' ), 'print' );
-
     if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
         wp_enqueue_script( 'comment-reply' );
     }
@@ -76,7 +73,6 @@ function tiny_setup() {
     add_theme_support( 'wp-block-styles' );
 
     add_theme_support( 'editor-styles' );
-    //TODO add_theme_support( 'dark-editor-style' );
 
     // Full and wide align images.
     add_theme_support( 'align-wide' );

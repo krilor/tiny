@@ -26,7 +26,7 @@
         
             <div class="site-branding group">
                 <?php
-                $logo = get_custom_logo(); // TODO display a default "logo" if custom logo is not there
+                $logo = get_custom_logo();
                 if ( $logo ) : ?>
                     <div id="site-logo-container"><?php echo $logo; ?></div>
                 <?php else: ?>
