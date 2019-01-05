@@ -59,7 +59,7 @@
                         endif;
 
                         if (get_post_type() === 'post'): ?>
-                        <div class="author-info">
+                        <div class="author-info inverse-link">
                             
                                 <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php the_date(); ?></a>
                                 <?php _e(' by ','tiny');
@@ -128,7 +128,7 @@
 
                     if ( $tag_list || $category_list ): ?>
 
-                    <footer class="post-meta">
+                    <footer class="post-meta inverse-link">
                         <?php if ( $category_list ): ?>
                         <div>
                             <span class="screen-reader-text"><?php _e('Categories', 'tiny'); ?></span>

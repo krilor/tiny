@@ -721,10 +721,23 @@ body {
 }
 /* Utility classes */
 .tiny-label {
-  text-transform: uppercase;
   font-size: 0.8em;
   font-weight: 700;
   margin-bottom: 0.3em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+a.inverse-link, a.inverse-link:visited a.inverse-link:active,
+.inverse-link a,
+a.inverse-link:visited .inverse-link a:active,
+.inverse-link a:visited a.inverse-link:active,
+.inverse-link a:visited .inverse-link a:active {
+  text-decoration: none;
+}
+a.inverse-link:hover,
+.inverse-link a:hover {
+  text-decoration: underline;
 }
 
 /* Header */
@@ -810,6 +823,24 @@ main article + article:before {
   background-color: #F15025;
   color: #FFF;
   padding: 0.3em 0.5em;
+}
+
+article [class^=wp-block],
+article h1, article h2, article h3, article h4, article h5, article h6,
+article p {
+  margin-bottom: 36px;
+  margin-top: 36px;
+}
+article p {
+  line-height: 1.8;
+}
+article dd,
+article li {
+  margin-bottom: 6px;
+}
+article .wp-block-spacer {
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 /* Pagination and post links */
@@ -955,14 +986,9 @@ main article + article:before {
   color: #F15025;
   font-size: 0.8em;
   font-weight: 700;
+  margin-bottom: 0.3em;
   text-decoration: none;
   text-transform: uppercase;
-}
-.post-categories li a:hover, .post-tags li a:hover {
-  text-decoration: underline;
-}
-.post-categories li a:active, .post-tags li a:active {
-  color: #191919;
 }
 
 /* Main header */
@@ -981,16 +1007,10 @@ main article + article:before {
 
 .author-info {
   font-size: 0.8em;
-  text-transform: uppercase;
   font-weight: 700;
-}
-.author-info a,
-.author-info a:visited,
-.author-info a:active {
+  margin-bottom: 0.3em;
   text-decoration: none;
-}
-.author-info a:hover {
-  text-decoration: underline;
+  text-transform: uppercase;
 }
 
 .single .author-info {
@@ -1095,24 +1115,6 @@ pre {
   word-wrap: break-word;
 }
 
-article [class^=wp-block],
-article h1, article h2, article h3, article h4, article h5, article h6,
-article p {
-  margin-bottom: 36px;
-  margin-top: 36px;
-}
-article p {
-  line-height: 1.8;
-}
-article dd,
-article li {
-  margin-bottom: 6px;
-}
-article .wp-block-spacer {
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
 .has-small-font-size {
   font-size: 12px;
 }
@@ -1177,6 +1179,7 @@ h4 {
 a,
 a:visited {
   color: #11648D;
+  text-decoration: underline;
 }
 
 a:hover {

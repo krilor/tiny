@@ -82,11 +82,26 @@ body {
 }
 
 /* Utility classes */
+
+// small uppercased text with no decoration
 .tiny-label {
-    text-transform: uppercase;
-    font-size: 0.8em;
-    font-weight: 700;
-    margin-bottom: 0.3em;
+    @include label();
+}
+
+// inverse underline
+a.inverse-link,
+.inverse-link a {
+    
+    &,
+    &:visited
+    &:active {
+        text-decoration: none;
+    }
+
+    &:hover {
+        text-decoration: underline;
+    }
+
 }
 
 
@@ -191,6 +206,32 @@ main article + article {
         color: $whiteish;
         padding: 0.3em 0.5em;
     }
+}
+
+// Ensure gutenmargins
+article {
+
+    [class^="wp-block"],
+    h1,h2,h3,h4,h5,h6,
+    p {
+        margin-bottom: $gutenmargin;
+        margin-top: $gutenmargin;
+    }
+
+    p {
+        line-height: 1.8;
+    }
+
+    dd,
+    li {
+        margin-bottom: 6px;
+    }
+
+    .wp-block-spacer {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
 }
 
 /* Pagination and post links */
@@ -361,17 +402,7 @@ main article + article {
         a,
         a:visited {
             color: $col-main;
-            font-size: 0.8em;
-            font-weight: 700;
-            text-decoration: none;
-            text-transform: uppercase;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-
-        a:active {
-            color: $blackish;
+            @include label();
         }
 
     }
@@ -393,18 +424,7 @@ main article + article {
 }
 
 .author-info {
-    font-size: 0.8em;
-    text-transform: uppercase;
-    font-weight: 700;
-
-    a,
-    a:visited,
-    a:active {
-        text-decoration: none;
-    }
-    a:hover {
-        text-decoration: underline;
-    }
+    @include label();
 }
 
 .single .author-info {
@@ -478,40 +498,12 @@ pre {
     word-wrap: break-word;
 }
 
-
-// Ensure gutenmargins
-article {
-
-    [class^="wp-block"],
-    h1,h2,h3,h4,h5,h6,
-    p {
-        margin-bottom: $gutenmargin;
-        margin-top: $gutenmargin;
-    }
-
-    p {
-        line-height: 1.8;
-    }
-
-    dd,
-    li {
-        margin-bottom: 6px;
-    }
-
-    .wp-block-spacer {
-        margin-top: 0;
-        margin-bottom: 0;
-    }
-
-}
-
 // Theme customs sizes
 @each $slug, $size in $editor-font-sizes {
     .has-#{$slug}-font-size {
         font-size: $size;
     }
 }
-
 
 // Gutenberg font sizes for headings
 // https://github.com/WordPress/gutenberg/blob/master/packages/block-library/src/heading/editor.scss
@@ -564,6 +556,7 @@ h4 {
 a,
 a:visited {
     color: $col-sec;
+    text-decoration: underline;
 }
 
 a:hover {
@@ -576,6 +569,7 @@ a:active {
 
 
 h1,h2,h3,h4,h5,h6 {
+
     a {
         text-decoration: none;
     }

@@ -65,8 +65,8 @@ function tiny_setup() {
         'width'       => 153,
         'flex-width'  => true,
         'flex-height' => true,
-        //'header-text' => array( 'header-text' ),
- 7   ) ) );
+        'header-text' => array( 'site-title' ),
+    ) ) );
 
     // Core block visual styles. Gutenberg
     add_theme_support( 'wp-block-styles' );
@@ -142,7 +142,7 @@ add_action( 'admin_init', 'tiny_add_editor_styles' );
 function tiny_breadcrumbs() {
     if ( function_exists('yoast_breadcrumb') ) {
         ob_start();
-        yoast_breadcrumb( '<p id="breadcrumbs" class="yoast-breadcrumbs">','</p>' );
+        yoast_breadcrumb( '<p id="breadcrumbs" class="yoast-breadcrumbs inverse-link">','</p>' );
         $result = ob_get_clean();
     }
     return $result;

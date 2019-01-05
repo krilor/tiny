@@ -25,10 +25,13 @@
             <div class="site-branding group">
                 <?php
                 $logo = get_custom_logo();
-                if ( $logo ) : ?>
-                    <div id="site-logo-container"><?php echo $logo; ?></div>
-                <?php else: ?>
+                $is_customizer = (bool)strpos( $logo, 'display:none' );
+                if ( !$logo || $is_customizer ): ?>
                     <div id="site-title-container"><a class="site-title" href="<?php echo site_url(); ?>"><?php bloginfo( 'name' ); ?></a></div>
+                <?php endif; ?>
+
+                <?php if ( $logo || $is_customizer ): ?>
+                    <div id="site-logo-container"><?php echo $logo; ?></div>
                 <?php endif; ?>
 
             </div>
