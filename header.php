@@ -19,8 +19,6 @@
 
     <a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'tiny' ); ?></a>
 
-
-
     <div class="main-container group">
         <header class="site-header silo">
         

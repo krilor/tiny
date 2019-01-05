@@ -15,7 +15,6 @@ add_action( 'wp_enqueue_scripts', 'tiny_theme_scripts' );
 
 /**
  * JavaScript detection - js class in html element
- * from
  */
 function tiny_js_detector() {
 	echo "<script>(function(html){html.className = html.className.replace(/\bno-js\b/,'js')})(document.documentElement);</script>\n";
@@ -62,8 +61,8 @@ function tiny_setup() {
     
     // Custom logo
     add_theme_support( 'custom-logo', apply_filters( 'tiny_custom_logo_args', array(
-        'height'      => 250,
-        'width'       => 250,
+        'height'      => 247,
+        'width'       => 153,
         'flex-width'  => true,
         'flex-height' => true,
         //'header-text' => array( 'header-text' ),
@@ -71,7 +70,8 @@ function tiny_setup() {
 
     // Core block visual styles. Gutenberg
     add_theme_support( 'wp-block-styles' );
-
+    
+    // Styling the editor (edtor-styles.css)
     add_theme_support( 'editor-styles' );
 
     // Full and wide align images.
@@ -141,8 +141,11 @@ add_action( 'admin_init', 'tiny_add_editor_styles' );
 // Display breadcrumbs - used in templates
 function tiny_breadcrumbs() {
     if ( function_exists('yoast_breadcrumb') ) {
+        ob_start();
         yoast_breadcrumb( '<p id="breadcrumbs" class="yoast-breadcrumbs">','</p>' );
+        $result = ob_get_clean();
     }
+    return $result;
 }
 
 // Register sidebar
@@ -180,15 +183,17 @@ function tiny_is_paginated_post() {
 	return 0 !== $multipage;
 }
 
+// Set content width for the editor
 if ( ! isset( $content_width ) ) {
 	$content_width = 700;
 }
 
-function tiny_is_template_blank(){
+// Check for a specific template
+function tiny_is_template( $template ){
     if ( !is_singular() ){
         return false;
     }
-    return is_page_template( 'template-blank.php' );
+    return is_page_template( 'template-' . $template . '.php' );
 }
 
 ?>

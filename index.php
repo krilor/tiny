@@ -11,34 +11,39 @@
     <section id="content" class="content-container silo">
         <main id="main">
 
-        <?php if ( is_home() ):
-            $description = get_bloginfo( 'description' );
-            $description = $description ? $description : __('This is a tiny webpage!','tiny');
-            ?>
-            <div class="archive-header">
-                <p id="site-description" class="header-text">
-                    <?php echo $description; ?>
-                </p>
-                <h1 class="main-title header-text"><?php bloginfo( 'name' ); ?></h1>
-            </div>
+            <?php
+            // Main header displays title on archive-like pages
+            if ( is_home() ){
+                $main_meta = get_bloginfo( 'description' );
+                $main_meta = $main_meta ? $main_meta : __('This is a tiny webpage!','tiny');
+                $main_title = get_bloginfo( 'name' );
+            } elseif ( is_archive() ) {
+                $main_meta = tiny_breadcrumbs();
+                $main_title = get_the_archive_title();
+            } elseif ( is_search() ) {
+                $main_meta = tiny_breadcrumbs();
+                $search_query = get_search_query();
+                $main_title = $search_query ? __( 'Search results for: ' ) . '<i>' . $search_query . '</i>' : __('Search','tiny');
+            }
+            
+            
+            if ( isset( $main_title ) && isset( $main_meta ) ) : ?>
+            
+                <header class="main-header">
+                    <div class="main-meta">
+                        <?php echo $main_meta; ?>
+                    </div>
+                    <h1 class="main-title"><?php echo $main_title ?></h1>
+                </header>
 
-        <?php elseif ( is_archive() ):
-            echo '<div class="archive-header">';
-            tiny_breadcrumbs();
-            the_archive_title('<h1 class="main-title">','</h1>');
-            echo '</div>';
-        
-        elseif ( is_search() ): ?>
+            <?php endif;
 
-            <div class="archive-header">
-            <?php tiny_breadcrumbs(); ?>
-            <h1 class="main-title"><?php _e('Search','tiny');?></h1>
-            </div>
-            <div>
-            <?php get_search_form( true ); ?>
-            </div>
-
-        <?php endif; // is_home ?>
+            // Display search form on search page
+            if ( is_search() ): ?>
+                <div class="main-search-form">
+                    <?php get_search_form( true ); ?>
+                </div>
+            <?php endif; ?>
 
         <?php
         if ( have_posts() ) {
@@ -49,8 +54,8 @@
                     
                     <header class="entry-header">
 
-                        <?php if ( ! ( is_home() || is_archive() || is_search() || tiny_is_template_blank() )):
-                            tiny_breadcrumbs();
+                        <?php if ( ! ( is_home() || is_archive() || is_search() || tiny_is_template('blank') )):
+                            echo tiny_breadcrumbs();
                         endif;
 
                         if (get_post_type() === 'post'): ?>
@@ -64,7 +69,7 @@
                         <?php endif;
 
                         if ( is_singular() ):
-                            if ( !tiny_is_template_blank() ): 
+                            if ( !tiny_is_template('blank') ): 
                                 the_title( '<h1 class="main-title post-title">', '</h1>' );
                             endif;
                         else:
@@ -195,6 +200,10 @@
             comments_template();
 
 
+        } else if ( is_search() ) {
+            if ( get_search_query() ){
+                printf('<h2>%s</h2>', __('Nothing found :(','tiny'));
+            }
         } else {
             printf('<h1>%s</h1>', __('No content to display','tiny'));
         }

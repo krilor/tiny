@@ -72,7 +72,7 @@ body {
 @include breakpoint(min-narrow){
 
     .sidebar-container, .site-header {
-        max-width: ( $wide - $content-width ) / 2;
+        width: ( $wide - $content-width ) / 2;
     }
     
     .content-container {
@@ -389,12 +389,16 @@ main article + article {
     }
 }
 
-/* Content */
 
-
-.main-title { // main title on archive an such
-
+/* Main header */
+.main-meta {
+    margin-bottom: 0;
 }
+.main-title { // main title on archive an such
+    margin-top: 0;
+}
+
+/* Content */
 
 .post-title { // individual post title
     margin-top: 0;
@@ -456,7 +460,14 @@ input[type="text"],
 input[type="url"],
 textarea {
     width: 100%;
+    padding: 0.3em;
 }
+
+/* Search form */
+.main-search-form {
+    margin-bottom: $gutenmargin;
+}
+
 /* Image caption */
 .wp-caption {
     text-align: center;
