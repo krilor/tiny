@@ -196,4 +196,13 @@ function tiny_is_template( $template ){
     return is_page_template( 'template-' . $template . '.php' );
 }
 
+// Stop empty search from displaying everything in results
+function tiny_handle_empty_search( $search, $q ) {
+    if( ! is_admin() && empty( $search ) && $q->is_search() && $q->is_main_query() ) {
+        $search .=" AND 0=1 ";
+    }
+    return $search;
+}
+add_filter('posts_search','tiny_handle_empty_search', 10, 2);
+
 ?>
