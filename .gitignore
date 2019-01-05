@@ -19,7 +19,8 @@ wp-content/plugins/hello.php
 
 # Tooling/Dev
 .sass-cache/
+*.css.map
 
-# Docker stuff
-docker-compose.yml
+# Build/dist
+dist/
 
