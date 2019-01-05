@@ -23,7 +23,7 @@
             } elseif ( is_search() ) {
                 $main_meta = tiny_breadcrumbs();
                 $search_query = get_search_query();
-                $main_title = $search_query ? __( 'Search results for: ' ) . '<i>' . $search_query . '</i>' : __('Search','tiny');
+                $main_title = $search_query ? __( 'Search results for: ','tiny' ) . '<i>' . $search_query . '</i>' : __('Search','tiny');
             }
             
             
