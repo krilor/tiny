@@ -12,9 +12,6 @@ $flame: #F15025;
 $platinum: #e6e8e6;
 $pastel-grey: #ced0ce;
 
-$whiteish: #FFF;
-$blackish: #191919;
-
 // https://mycolor.space/?hex=%23F15025&sub=1
 $flame-light: #FFE6D7;
 $easy-blue: #11648D;
@@ -25,6 +22,11 @@ $editor-color-palette: (
     flame-light: $flame-light,
     easy-blue: $easy-blue
 );
+
+$whiteish: #FFF;
+$blackish: #191919;
+$grey-lighter: $pastel-grey;
+$grey-light: $platinum;
 
 
 $col-main: $flame; // main is used for links and such. Should be pretty dark, as it is used vs white quite often

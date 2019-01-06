@@ -8,9 +8,8 @@ Version: 2.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: tiny
-Tags: one-column, two-columns, right-sidebar, custom-colors, custom-header, custom-menu, custom-logo, editor-style, featured-images, footer-widgets, post-formats, sticky-post, theme-options, threaded-comments, translation-ready
+Tags: blog, two-columns, right-sidebar, custom-colors, custom-menu, custom-logo, editor-style, featured-images, footer-widgets, sticky-post, threaded-comments, translation-ready
 This theme, like WordPress, is licensed under the GPL.
-Use it to make something cool, have fun, and share what you've learned with others.
 */
 
 /* Variables */
@@ -53,10 +52,8 @@ body {
 }
 
 // clearfix - https://css-tricks.com/snippets/css/clear-fix/
-.group:after {
-    content: "";
-    display: table;
-    clear: both;
+.group {
+    @include clearfix();
 }
 
 .silo {
@@ -92,15 +89,7 @@ body {
 a.inverse-link,
 .inverse-link a {
     
-    &,
-    &:visited
-    &:active {
-        text-decoration: none;
-    }
-
-    &:hover {
-        text-decoration: underline;
-    }
+    @include inverse();
 
 }
 
@@ -211,11 +200,17 @@ main article + article {
 // Ensure gutenmargins
 article {
 
-    [class^="wp-block"],
-    h1,h2,h3,h4,h5,h6,
-    p {
-        margin-bottom: $gutenmargin;
-        margin-top: $gutenmargin;
+    .entry-content > {
+        [class^="wp-block"],
+        h1,h2,h3,h4,h5,h6,
+        p,
+        table,
+        dl,
+        figure,
+        .wp-audio-shortcode {
+            margin-bottom: $gutenmargin;
+            margin-top: $gutenmargin;
+        }
     }
 
     p {
@@ -341,6 +336,9 @@ article {
 // Single post navigation
 .post-navigation {
     margin: $gutenmargin 0;
+    .prev, .next {
+        max-width: calc(100% - 1em);
+    }
 }
 
 .wrap-previous,
@@ -584,5 +582,62 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 table {
-    margin-bottom: 1em;
+
+
+    border-collapse: collapse;
+    border-spacing: 0;
+    border-top: 1px solid $grey-lighter;
+
+
+    td, th {
+        padding: 0.5em;
+        
+    }
+
+    tr {
+        border-bottom: 1px solid $grey-lighter;
+    }
+
+    tr.even,
+    th,
+    tr:nth-child(2n+1) {
+        background-color: $grey-light;
+    }
+}
+
+dl {
+
+    @include clearfix;
+
+    dt, dd {
+        display: block;
+        margin: 0;
+        padding: 0.5em;
+    }
+    dt {
+        width: 25%;
+        float: left;
+        clear: both;
+        color: $col-main;
+        font-weight: 700;
+    }
+
+    dd {
+        width: 75%;
+        float: right;
+        clear:right;
+    }
+}
+
+// Make blockquote html match gutenberg quote
+blockquote {
+    border-left: 4px solid #000;
+    padding-left: 1em;
+    margin-left: 0;
+}
+
+var {
+    @include label();
+    padding: 0.3em 0.5em;
+    background-color: $col-main-light;
 }

@@ -36,3 +36,23 @@
     text-decoration: none;
     text-transform: uppercase;
 }
+
+@mixin clearfix(){
+    &:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
+@mixin inverse() {
+    &,
+    &:visited
+    &:active {
+        text-decoration: none;
+    }
+
+    &:hover {
+        text-decoration: underline;
+    }
+}

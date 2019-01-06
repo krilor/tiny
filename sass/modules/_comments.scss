@@ -12,17 +12,23 @@ ol.comment-list {
     }
 }
 
-.comment {
+.comment, .pingback {
     margin-bottom: $space;
 }
 
 .comment-body {
     
-    border: 1px solid $col-main;
+    border: 1px solid $col-main-light;
 
     .comment-meta {
-        border-bottom: 1px solid $col-main;
+        border-bottom: 1px solid $col-main-light;
         padding: $space;
+
+        @include label();
+
+        a {
+            @include inverse();
+        }
     }
         
 

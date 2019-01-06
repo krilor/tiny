@@ -98,8 +98,14 @@
                     </header>
                     
                     <div class="entry-content group">
-                        <?php the_content(); ?>
-                        <?php edit_post_link(__('Edit','tiny')); ?>
+                        <?php
+                        if ( is_archive() ){
+                            the_excerpt();
+                        } else {
+                            the_content( __('Read more about it..','tiny') );
+                        }
+                        edit_post_link(__('Edit','tiny'));
+                        ?>
                     </div>
 
 

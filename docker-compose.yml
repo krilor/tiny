@@ -18,6 +18,24 @@ services:
       WORDPRESS_DB_NAME: wp
       WORDPRESS_TABLE_PREFIX: wp
       WORDPRESS_DEBUG: 1
+  wpbuild:
+    image: wordpress
+    labels:
+      - "traefik.frontend.rule=Host:tinybuild.docker.localhost"
+      - "traefik.enable=true"
+      - "traefik.docker.network=dev-gateway"
+    networks:
+      - backend
+      - web
+    volumes:
+      - ./dist/tiny/:/var/www/html/wp-content/themes/tiny
+    environment:
+      WORDPRESS_DB_HOST: tinymaria
+      WORDPRESS_DB_USER: wp
+      WORDPRESS_DB_PASSWORD: dev
+      WORDPRESS_DB_NAME: wp
+      WORDPRESS_TABLE_PREFIX: wpbuild
+      WORDPRESS_DEBUG: 1
   tinymaria:
     image: mariadb
     labels:

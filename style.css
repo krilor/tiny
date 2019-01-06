@@ -9,9 +9,8 @@ Version: 2.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: tiny
-Tags: one-column, two-columns, right-sidebar, custom-colors, custom-header, custom-menu, custom-logo, editor-style, featured-images, footer-widgets, post-formats, sticky-post, theme-options, threaded-comments, translation-ready
+Tags: blog, two-columns, right-sidebar, custom-colors, custom-menu, custom-logo, editor-style, featured-images, footer-widgets, sticky-post, threaded-comments, translation-ready
 This theme, like WordPress, is licensed under the GPL.
-Use it to make something cool, have fun, and share what you've learned with others.
 */
 /* Variables */
 /* Variables */
@@ -601,16 +600,27 @@ ol.comment-list ol.children {
   padding-left: 14px;
 }
 
-.comment {
+.comment, .pingback {
   margin-bottom: 14px;
 }
 
 .comment-body {
-  border: 1px solid #F15025;
+  border: 1px solid #FFE6D7;
 }
 .comment-body .comment-meta {
-  border-bottom: 1px solid #F15025;
+  border-bottom: 1px solid #FFE6D7;
   padding: 14px;
+  font-size: 0.8em;
+  font-weight: 700;
+  margin-bottom: 0.3em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+.comment-body .comment-meta a, .comment-body .comment-meta a:visited .comment-body .comment-meta a:active {
+  text-decoration: none;
+}
+.comment-body .comment-meta a:hover {
+  text-decoration: underline;
 }
 .comment-body .comment-content {
   padding: 0 14px;
@@ -825,9 +835,13 @@ main article + article:before {
   padding: 0.3em 0.5em;
 }
 
-article [class^=wp-block],
-article h1, article h2, article h3, article h4, article h5, article h6,
-article p {
+article .entry-content > [class^=wp-block],
+article .entry-content > h1, article .entry-content > h2, article .entry-content > h3, article .entry-content > h4, article .entry-content > h5, article .entry-content > h6,
+article .entry-content > p,
+article .entry-content > table,
+article .entry-content > dl,
+article .entry-content > figure,
+article .entry-content > .wp-audio-shortcode {
   margin-bottom: 36px;
   margin-top: 36px;
 }
@@ -927,6 +941,9 @@ article .wp-block-spacer {
 
 .post-navigation {
   margin: 36px 0;
+}
+.post-navigation .prev, .post-navigation .next {
+  max-width: calc(100% - 1em);
 }
 
 .wrap-previous,
@@ -1201,7 +1218,59 @@ h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover {
 }
 
 table {
-  margin-bottom: 1em;
+  border-collapse: collapse;
+  border-spacing: 0;
+  border-top: 1px solid #ced0ce;
+}
+table td, table th {
+  padding: 0.5em;
+}
+table tr {
+  border-bottom: 1px solid #ced0ce;
+}
+table tr.even,
+table th,
+table tr:nth-child(2n+1) {
+  background-color: #e6e8e6;
+}
+
+dl:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+dl dt, dl dd {
+  display: block;
+  margin: 0;
+  padding: 0.5em;
+}
+dl dt {
+  width: 25%;
+  float: left;
+  clear: both;
+  color: #F15025;
+  font-weight: 700;
+}
+dl dd {
+  width: 75%;
+  float: right;
+  clear: right;
+}
+
+blockquote {
+  border-left: 4px solid #000;
+  padding-left: 1em;
+  margin-left: 0;
+}
+
+var {
+  font-size: 0.8em;
+  font-weight: 700;
+  margin-bottom: 0.3em;
+  text-decoration: none;
+  text-transform: uppercase;
+  padding: 0.3em 0.5em;
+  background-color: #FFE6D7;
 }
 
 /*# sourceMappingURL=style.css.map */

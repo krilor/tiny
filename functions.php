@@ -61,8 +61,8 @@ function tiny_setup() {
     
     // Custom logo
     add_theme_support( 'custom-logo', apply_filters( 'tiny_custom_logo_args', array(
-        'height'      => 247,
-        'width'       => 153,
+        'height'      => 153,
+        'width'       => 247,
         'flex-width'  => true,
         'flex-height' => true,
         'header-text' => array( 'site-title' ),
