@@ -1,0 +1,53 @@
+.wp-block {
+  max-width: 700px;
+}
+
+.wp-block[data-align=wide] {
+  max-width: 728px;
+}
+
+.wp-block[data-align=full] {
+  max-width: 728px;
+}
+
+a {
+  color: #F15025;
+}
+
+* {
+  font-family: sans-serif;
+}
+
+.editor-post-title__input {
+  font-family: sans-serif;
+}
+
+.wp-block-button .wp-block-button__link {
+  background-color: #F15025;
+  border: 2px solid #F15025;
+  box-shadow: none;
+  border-radius: 0;
+  color: #FFF;
+  display: inline-block;
+  font-weight: 900;
+  line-height: 2em;
+  vertical-align: middle;
+  text-transform: uppercase;
+  text-decoration: none;
+  outline: 0;
+  padding: 0 1em;
+  cursor: pointer;
+}
+.wp-block-button .wp-block-button__link:hover {
+  border-color: #FFF;
+}
+.wp-block-button .wp-block-button__link:visited {
+  color: #FFF;
+}
+.wp-block-button .wp-block-button__link:active {
+  background-color: #FFF;
+  border-color: #F15025;
+  color: #F15025;
+}
+
+/*# sourceMappingURL=editor-style.css.map */

@@ -1,0 +1,49 @@
+/**
+ * Alignment
+ *
+ * Aligning content in Gutenberg and Classic editor is done using classes. Need to 
+ * @link https://codex.wordpress.org/CSS
+ * @link https://digwp.com/2010/05/default-wordpress-css-styles-hooks/
+ * @link https://wordpress.org/gutenberg/handbook/designers-developers/developers/themes/theme-support/
+ *
+ **/
+
+$space: 14px !default;
+
+// alignnone - Not inline with text
+.alignnone {
+    clear: both;
+    display: block;
+}
+
+// alignleft - Float left and leave some space around it
+.alignleft {
+    float: left;
+    margin: 0.3em 1.3em 1.3em 0;
+}
+
+// aligncenter - Break text and center
+.aligncenter {
+    clear: both;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+// alignright - Float right and leave some space around it
+.alignright {
+    float: right;
+    margin: 0.3em 0 1.3em 1.3em;
+}
+
+// Gutenberg
+// alignwide - Fill the content area
+// alignfull - Fill the whole screen (disabled)
+.alignwide,
+.alignfull {
+    clear: both;
+    display: block;
+    margin-left: -$space;
+    margin-right: -$space;
+    max-width: 100vw;
+}

@@ -1,0 +1,58 @@
+@mixin button() {
+    background-color: $col-main;
+    border: 2px solid $col-main;
+    box-shadow: none;
+    border-radius: 0;
+    color: $whiteish;
+    display: inline-block;
+    font-weight: 900;
+    line-height: 2em;
+    vertical-align: middle;
+    text-transform: uppercase;
+    text-decoration: none;
+    outline: 0;
+    padding: 0 1em;
+    cursor: pointer;
+
+    &:hover {
+        border-color: $whiteish;
+    }
+
+    &:visited {
+        color: $whiteish;
+    }
+    
+    &:active {
+        background-color: $whiteish;
+        border-color: $col-main;
+        color: $col-main;
+    }
+}
+
+@mixin label(){
+    font-size: 0.8em;
+    font-weight: 700;
+    margin-bottom: 0.3em;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+@mixin clearfix(){
+    &:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
+@mixin inverse() {
+    &,
+    &:visited
+    &:active {
+        text-decoration: none;
+    }
+
+    &:hover {
+        text-decoration: underline;
+    }
+}

@@ -1,0 +1,77 @@
+// Variables
+// Space should only be used for spacing in the structure.
+$space: 14px; // same as the gutenberg editor
+$space-double: $space * 2;
+$space-half: $space / 2;
+$space-quarter: $space / 4;
+$gutenmargin: 36px; // oft-used margin on gutenberg blocks
+
+// Colors
+// coolors.co/f15025-ffffff-e6e8e6-ced0ce-191919
+$flame: #F15025;
+$platinum: #e6e8e6;
+$pastel-grey: #ced0ce;
+
+// https://mycolor.space/?hex=%23F15025&sub=1
+$flame-light: #FFE6D7;
+$easy-blue: #11648D;
+
+// Theme support colors
+$editor-color-palette: (
+    flame: $flame,
+    flame-light: $flame-light,
+    easy-blue: $easy-blue
+);
+
+$whiteish: #FFF;
+$blackish: #191919;
+$grey-lighter: $pastel-grey;
+$grey-light: $platinum;
+
+
+$col-main: $flame; // main is used for links and such. Should be pretty dark, as it is used vs white quite often
+$col-main-light: $flame-light;
+$col-sec: $easy-blue;
+
+
+// Fonts
+$font-headings: sans-serif;
+$font-body: sans-serif;
+
+$editor-font-sizes: (
+    small: 12px,
+    regular: 16px,
+    large: 35px,
+    larger: 50px
+);
+
+
+// Breakpoints
+// Only use two breakpoints to keep it simple
+// Ref: http://screensiz.es/
+
+$narrow: 800px; // Smaller screens and phones fall below this breakpoint
+$wide: 1250px; // Regular desktops and beyond - 1280 px is normal. Leaving some pixels for browser border and scrollbar
+
+@mixin breakpoint($point) {
+    @if $point == max-narrow {
+        @media screen and ( max-width: $narrow ) { @content; }
+    }
+    @else if $point == min-narrow {
+        @media screen and ( min-width: $narrow ) { @content; }
+    }
+    @else if $point == between {
+        @media screen and ( min-width: $narrow ) and ( max-width: $wide ) { @content; }
+    }
+    @else if $point == max-wide {
+        @media screen and ( max-width: $wide ) { @content; }
+    }
+    @else if $point == min-wide {
+        @media screen and ( min-width: $wide ) { @content; }
+    }
+    @else {
+        @media screen { @content; }
+    }
+}
+
+$content-width: 700px;

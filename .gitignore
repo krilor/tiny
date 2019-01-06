@@ -17,3 +17,10 @@ wp-content/plugins/hello.php
 /sitemap.xml
 /sitemap.xml.gz
 
+# Tooling/Dev
+.sass-cache/
+*.css.map
+
+# Build/dist
+dist/
+

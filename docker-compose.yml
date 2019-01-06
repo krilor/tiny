@@ -1,0 +1,58 @@
+version: '2'
+services:
+  wp:
+    image: wordpress
+    labels:
+      - "traefik.frontend.rule=Host:wp.docker.localhost"
+      - "traefik.enable=true"
+      - "traefik.docker.network=dev-gateway"
+    networks:
+      - backend
+      - web
+    volumes:
+      - ./:/var/www/html/wp-content/themes/tiny
+    environment:
+      WORDPRESS_DB_HOST: tinymaria
+      WORDPRESS_DB_USER: wp
+      WORDPRESS_DB_PASSWORD: dev
+      WORDPRESS_DB_NAME: wp
+      WORDPRESS_TABLE_PREFIX: wp
+      WORDPRESS_DEBUG: 1
+  wpbuild:
+    image: wordpress
+    labels:
+      - "traefik.frontend.rule=Host:tinybuild.docker.localhost"
+      - "traefik.enable=true"
+      - "traefik.docker.network=dev-gateway"
+    networks:
+      - backend
+      - web
+    volumes:
+      - ./dist/tiny/:/var/www/html/wp-content/themes/tiny
+    environment:
+      WORDPRESS_DB_HOST: tinymaria
+      WORDPRESS_DB_USER: wp
+      WORDPRESS_DB_PASSWORD: dev
+      WORDPRESS_DB_NAME: wp
+      WORDPRESS_TABLE_PREFIX: wpbuild
+      WORDPRESS_DEBUG: 1
+  tinymaria:
+    image: mariadb
+    labels:
+      - "traefik.enable=false"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: wp
+      MYSQL_USER: wp
+      MYSQL_PASSWORD: dev
+    networks:
+      - backend
+
+
+networks:
+  web:
+    external:
+      name: dev-gateway
+  backend:
+    external:
+      name: dev-backend

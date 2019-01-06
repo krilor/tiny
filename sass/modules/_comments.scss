@@ -1,0 +1,57 @@
+ol.comment-list {
+
+    padding-left: 0;
+
+    &, ol.children {
+        list-style-type: none;
+    }
+
+    ol.children {
+        margin-top: $space;
+        padding-left: $space;
+    }
+}
+
+.comment, .pingback {
+    margin-bottom: $space;
+}
+
+.comment-body {
+    
+    border: 1px solid $col-main-light;
+
+    .comment-meta {
+        border-bottom: 1px solid $col-main-light;
+        padding: $space;
+
+        @include label();
+
+        a {
+            @include inverse();
+        }
+    }
+        
+
+    .comment-content {
+
+        padding: 0 $space;
+
+        p {
+            margin-top: 1em;
+            margin-bottom: 1em;
+        }
+
+    }
+
+    .reply {
+        padding: 0 0 $space $space;
+    }
+
+    .comment-reply-link {
+        @include button();
+    }
+}
+
+.comment-list .bypostauthor .comment-meta {
+    background-color: $col-main-light;
+}

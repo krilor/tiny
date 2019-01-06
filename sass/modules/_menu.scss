@@ -1,0 +1,75 @@
+// the main menu
+
+.menu {
+
+
+    ul {
+        padding-left: 0.6em;
+        list-style-type: none;
+    }
+
+    > ul {
+        padding-left: 0;
+    }
+
+    li {
+        background-color: $whiteish;
+
+        &.current_page_item > a {
+            text-shadow: 1px 0 0 currentColor;
+        }
+
+    }
+
+    ul ul {
+        
+        li {
+            padding-left: 0.6em;
+            border-left: 1px solid #000;
+        }
+    }
+
+    a {
+        color: $blackish;
+        display: inline-block;
+        padding: 0.3em 0;
+        text-decoration: none;
+
+        &:visited {
+            color: $blackish;
+        }
+        
+        &:hover {
+            color: $col-main;
+        }
+        
+        &:active {
+            color: $blackish;
+        }
+    }
+}
+
+
+button.nav-toggle { // flat
+    display: none;
+    position: absolute;
+    top: $space;
+    right: $space;
+    z-index: 1000;
+}
+
+@include breakpoint(max-narrow) {
+    .js .primary-menu {
+        display: none;
+        visibility: hidden;
+    }
+    
+    .js .primary-menu.active {
+        display: block;
+        visibility: visible;
+    }
+
+    button.nav-toggle {
+        display: block;
+    }
+}
