@@ -8,8 +8,8 @@
 
 <?php get_header(); ?>
 
-    <section id="content" class="content-container silo">
-        <main id="main">
+    <main id="content" class="content-container silo">
+        <section id="main">
 
             <?php
             // Main header displays title on archive-like pages
@@ -99,7 +99,7 @@
                     
                     <div class="entry-content group">
                         <?php
-                        if ( is_archive() ){
+                        if ( is_archive() || is_search() ){
                             the_excerpt();
                         } else {
                             the_content( __('Read more about it..','tiny') );
@@ -220,7 +220,7 @@
         }
         ?>
 
-        </main>
-    </section>
+        </section>
+    </main>
 <?php get_sidebar(); ?>
 <?php get_footer(); ?>

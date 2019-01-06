@@ -1,27 +1,26 @@
 /*!
 Theme Name: Tiny
-Theme URI: https://wordpress.org/themes/tiny/
+Theme URI: https://github.com/krilor/tiny
 Author: Kristoffer Lorentsen
-Author URI: https://lorut.no/
+Author URI: https://github.com/krilor
 Description: Tiny is a powerful theme that doesn't get in your way.
 Version: 2.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: tiny
 Tags: blog, two-columns, right-sidebar, custom-colors, custom-menu, custom-logo, editor-style, featured-images, footer-widgets, sticky-post, threaded-comments, translation-ready
-This theme, like WordPress, is licensed under the GPL.
 */
 
-/* Variables */
+// Variables
 @import 'variables';
 @import 'mixins';
 
-/* Vendor stuff */
+// Vendor stuff
 @import 'vendor/normalize';
 @import 'vendor/accessibility'; 
 @import 'vendor/galleries';
 
-/* Modules */
+// Modules
 @import 'modules/alignment';
 @import 'modules/menu';
 @import 'modules/comments';
@@ -155,6 +154,16 @@ a.inverse-link,
 }
 
 /* Content structure */
+
+// https://codex.wordpress.org/Content_Width
+.size-auto, 
+.size-full,
+.size-large,
+.size-medium,
+.size-thumbnail {
+	max-width: 100%;
+	height: auto;
+}
 
 .home .entry-content *:first-child {
     margin-top: 0;

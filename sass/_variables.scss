@@ -1,4 +1,4 @@
-/* Variables */
+// Variables
 // Space should only be used for spacing in the structure.
 $space: 14px; // same as the gutenberg editor
 $space-double: $space * 2;
@@ -6,7 +6,7 @@ $space-half: $space / 2;
 $space-quarter: $space / 4;
 $gutenmargin: 36px; // oft-used margin on gutenberg blocks
 
-/* Colors */
+// Colors
 // coolors.co/f15025-ffffff-e6e8e6-ced0ce-191919
 $flame: #F15025;
 $platinum: #e6e8e6;
@@ -34,7 +34,7 @@ $col-main-light: $flame-light;
 $col-sec: $easy-blue;
 
 
-/* Fonts */
+// Fonts
 $font-headings: sans-serif;
 $font-body: sans-serif;
 
@@ -45,11 +45,11 @@ $editor-font-sizes: (
     larger: 50px
 );
 
-/**
- * Breakpoints
- * Only use two breakpoints to keep it simple
- * Ref: http://screensiz.es/
- */
+
+// Breakpoints
+// Only use two breakpoints to keep it simple
+// Ref: http://screensiz.es/
+
 $narrow: 800px; // Smaller screens and phones fall below this breakpoint
 $wide: 1250px; // Regular desktops and beyond - 1280 px is normal. Leaving some pixels for browser border and scrollbar
 

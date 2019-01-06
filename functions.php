@@ -140,12 +140,17 @@ add_action( 'admin_init', 'tiny_add_editor_styles' );
 
 // Display breadcrumbs - used in templates
 function tiny_breadcrumbs() {
-    if ( function_exists('yoast_breadcrumb') ) {
+
+    // Use this filter to add your own breadcrumb code.
+    $breadcrumbs = apply_filters('tiny_breadcrumbs', '');
+
+    if ( !$breadcrumbs && function_exists('yoast_breadcrumb') ) {
         ob_start();
         yoast_breadcrumb( '<p id="breadcrumbs" class="yoast-breadcrumbs inverse-link">','</p>' );
-        $result = ob_get_clean();
+        $breadcrumbs = ob_get_clean();
     }
-    return $result;
+
+    return $breadcrumbs;
 }
 
 // Register sidebar
