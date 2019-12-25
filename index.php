@@ -102,7 +102,7 @@
                         if ( is_archive() || is_search() ){
                             the_excerpt();
                         } else {
-                            the_content( __('Read more about it..','tiny') );
+                            the_content( __($more_link_text,'tiny') );
                         }
                         edit_post_link(__('Edit','tiny'));
                         ?>
